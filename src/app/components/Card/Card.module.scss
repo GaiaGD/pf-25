@@ -1,0 +1,18 @@
+// Component-specific styles for Card
+// Variables and mixins are auto-imported via next.config.ts
+
+.card {
+  @include card-base;
+  
+  &:hover {
+    @include card-hover-effect;
+  }
+}
+
+.heading {
+  @include heading-style(map-get($font-sizes, xl));
+}
+
+.subheading {
+  @include body-text(map-get($font-sizes, sm));
+}
