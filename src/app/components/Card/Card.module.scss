@@ -2,17 +2,29 @@
 // Variables and mixins are auto-imported via next.config.ts
 
 .card {
-  @include card-base;
-  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $off-white;
+  border-radius: $border-radius-medium;
+  padding: $padding-large;
+  color: $charcoal;
+  display: flex;
+  flex-direction: column;
+  gap: $padding-medium;
   &:hover {
     @include card-hover-effect;
   }
-}
 
-.heading {
-  @include heading-style(map-get($font-sizes, xl));
-}
+  .heading {
+    font-size: map-get($font-sizes, '2xl');
+    font-weight: 600;
+  }
 
-.subheading {
-  @include body-text(map-get($font-sizes, sm));
+  .subheading {
+    font-size: map-get($font-sizes, lg);
+    color: $text-secondary;
+  }
+
 }

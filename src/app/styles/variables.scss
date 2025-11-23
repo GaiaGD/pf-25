@@ -1,24 +1,31 @@
 // SCSS Variables - Pure variables only, no CSS output
 // This file should only contain variable definitions
 
-// Spacing
-$border-radius: 8px;
-$spacing-small: 1rem;
-$spacing-base: 1.5rem;
-$spacing-large: 2rem;
-
 // Colors
-$colors: (
-  primary: #0070f3,
-  secondary: #666,
-  success: #10b981,
-  warning: #f59e0b,
-  error: #ef4444,
-  text-primary: #333,
-  text-secondary: #666,
-  border: #ddd,
-  white: #fff
-);
+$primary: #0070f3;
+$secondary: #666;
+$success: #10b981;
+$warning: #f59e0b;
+$error: #ef4444;
+$text-primary: #333;
+$text-secondary: #666;
+$border: #ddd;
+$white: #fff;
+$off-white: #f9f9f9;
+$black: #000;
+$charcoal: #121212;
+
+
+// border radius
+$border-radius-small: 1rem;
+$border-radius-medium: 2rem;
+$border-radius-large: 3rem;
+
+
+// padding sizes
+$padding-small: 1rem;
+$padding-medium: 1.5rem;
+$padding-large: 2rem;
 
 // Breakpoints
 $breakpoints: (
@@ -39,3 +46,4 @@ $font-sizes: (
   '2xl': 1.5rem,
   '3xl': 1.875rem
 );
+
