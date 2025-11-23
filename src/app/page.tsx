@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 
 
@@ -42,7 +42,7 @@ export default function Home() {
         setActiveCards(rest);
         setThrownCards([...thrownCardsRef.current, topCard]);
         
-        setTimeout(() => setIsScrolling(false), 600);
+        setTimeout(() => setIsScrolling(false), 300);
       } else if (e.deltaY < 0 && thrownCardsRef.current.length > 0) {
         // Scrolling up - bring back last thrown card
         setIsScrolling(true);
@@ -50,7 +50,7 @@ export default function Home() {
         setThrownCards(thrownCardsRef.current.slice(0, -1));
         setActiveCards([lastThrown, ...activeCardsRef.current]);
         
-        setTimeout(() => setIsScrolling(false), 600);
+        setTimeout(() => setIsScrolling(false), 300);
       }
     };
 
@@ -58,25 +58,54 @@ export default function Home() {
     return () => window.removeEventListener('wheel', handleWheel);
   }, [isScrolling]);
 
-
-
-  console.log(cards);
-
   
   return (
     <div className="page">
       <main className="main">
-
+        <AnimatePresence>
         {
-          activeCards.map((item, index) => (
-            <Card 
-              key={index} 
-              heading={item.heading} 
-              subheading={item.subheading} 
+          activeCards.map((card, index) => (
+            <Card
+              key={card.id}
+              heading={card.heading}
+              subheading={card.subheading}
+              id={card.id}
+              offsetX={card.offsetX}
+              offsetY={card.offsetY}
+              rotation={card.rotation}
+              motionProps={{
+                initial: {
+                  y: -800,
+                  x: card.offsetX,
+                  rotate: card.rotation,
+                },
+                animate: {
+                  y: card.offsetY,
+                  x: card.offsetX,
+                  rotate: card.rotation,
+                  zIndex: activeCards.length - index,
+                },
+                exit: {
+                  y: -800,
+                  x: card.offsetX,
+                  rotate: card.rotation,
+                  transition: {
+                    duration: 0.5,
+                    ease: "easeInOut",
+                  },
+                },
+                transition: {
+                  duration: 0.5,
+                  ease: "easeInOut",
+                },
+                style: {
+                  transformOrigin: "top center",
+                },
+              }}
             />
           ))
         }
-
+        </AnimatePresence>
       </main>
     </div>
   );

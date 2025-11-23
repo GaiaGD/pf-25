@@ -1,15 +1,11 @@
+import { motion } from 'framer-motion';
 import styles from "./Card.module.scss";
 
-interface CardProps {
-  heading: string;
-  subheading: string;
-}
-
-export default function Card({ heading, subheading }: CardProps) {
+export default function Card({ heading, subheading, motionProps }: CardProps) {
   return (
-    <div className={styles.card}>
+    <motion.div className={styles.card} {...motionProps}>
       <h2 className={styles.heading}>{heading}</h2>
       <p className={styles.subheading}>{subheading}</p>
-    </div>
+    </motion.div>
   );
 }
