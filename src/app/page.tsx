@@ -89,11 +89,16 @@ export default function Home() {
                 initial: { 
                   y: "-100vh",
                   x: `-50%`,
+                  rotate: index * 2 - activeCards.length
                 },
                 animate: {
                   y: `-50%`,
                   x: `-50%`,
                   zIndex: activeCards.length - index,
+                  transition: {
+                    duration: 0.5,
+                    ease: "easeIn",
+                  }
                 },
                 exit: {
                   y: "-100vh",
