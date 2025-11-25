@@ -6,8 +6,9 @@ import { AnimatePresence } from 'framer-motion';
 import styles from "./page.module.scss";
 
 import { cards } from "../../cards.json";
-import Card from "./components/Card/Card";
 
+import Card from "./components/Card/Card";
+import Nav from "./components/Nav/Nav";
 export default function Home() {
 
   // states
@@ -49,9 +50,7 @@ export default function Home() {
         setTimeout(() => {
           isScrollingRef.current = false;
           setIsScrolling(false);
-        }, 2000);
-
-
+        }, 1500);
 
 
       } else if (e.deltaY < 0 && thrownCardsRef.current.length > 0) {
@@ -65,7 +64,7 @@ export default function Home() {
         setTimeout(() => {
           isScrollingRef.current = false;
           setIsScrolling(false);
-        }, 2000);
+        }, 1500);
       }
     };
 
@@ -73,15 +72,34 @@ export default function Home() {
     return () => window.removeEventListener('wheel', handleWheel);
   }, []);
 
+  const bringBackCard = (link: string) => {
+    
+    const cardToBringBack = thrownCardsRef.current.find(card => card.link === link);
+    if (!cardToBringBack) return;
+
+    isScrollingRef.current = true;
+    setIsScrolling(true);
+    setThrownCards(thrownCardsRef.current.filter(card => card.link !== link));
+    setActiveCards([cardToBringBack, ...activeCardsRef.current]);
+
+    setTimeout(() => {
+      isScrollingRef.current = false;
+      setIsScrolling(false);
+    }, 1500);
+  }
+
   
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <Nav bringBackCard={bringBackCard} items={thrownCards.map(card => ({ label: card.heading, link: card.link }))} />
+
         <AnimatePresence>
         {
           activeCards.map((card, index) => (
             <Card
               key={card.id}
+              link={card.link}
               heading={card.heading}
               subheading={card.subheading}
               id={card.id}
