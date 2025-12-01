@@ -1,21 +1,29 @@
 import styles from "./Nav.module.scss";
 
-export default function Nav({ items, bringBackCard }: NavProps) {
+export default function Nav({ allCards, thrownCards, bringBackCard }: NavProps) {
 
+
+  const isCardThrown = (card: CardLink) => thrownCards.map(thrownCard => thrownCard.link).includes(card.link)
 
   return (
     <nav className={styles.nav}>
-      {items.length > 0 ? (
+      {allCards.length > 0 ? (
         <ul className={styles.navList}>
-          {items.map((item) => (
-            <li key={item.label} className={styles.navItem}>
-              <div aria-label={item.label} onClick={() => bringBackCard(item.link)} className={styles.navLink}>
-                {item.label}
-              </div>
-            </li>
-          ))}
+          {allCards.map((card) => (
+              <li 
+                key={card.heading} 
+                className={`${styles.navItem}
+                ${isCardThrown(card) ? styles.thrown : ''}
+                `}
+              >
+                <div aria-label={card.heading} onClick={() => bringBackCard(card.link)} className={styles.navLink}>
+                {card.heading}
+                </div>
+              </li>
+            ))}
         </ul>
       ) : null}
     </nav>
-  );
+  );2
 }
+

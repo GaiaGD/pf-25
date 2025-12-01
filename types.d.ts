@@ -1,12 +1,17 @@
-interface CardProps {
-  id: number;
-  link: string;
+
+interface CardLink {
   heading: string;
+  link: string;
+}
+
+interface CardProps extends CardLink {
+  id: number;
   subheading: string;
   motionProps?: HTMLMotionProps<"div">;
 }
 
 interface NavProps {
-  items: { label: string; link: string }[];
+  thrownCards: CardLink[];
+  allCards: CardLink[];
   bringBackCard: (link: string) => void;
 }

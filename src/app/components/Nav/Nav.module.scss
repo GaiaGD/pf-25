@@ -18,10 +18,15 @@ nav.nav {
         gap: 1.5rem;
         .navItem {
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.4rem;
             font-weight: 500;
             color: var(--text-primary);
             text-decoration: none;
+            opacity: 0.05;
+            pointer-events: none;
+            transition: opacity 0.3s ease, text-decoration 0.3s ease;
+            font-family: var(--font-instrument-serif);
+
             &:hover {
                 text-decoration: underline;
             }
@@ -29,6 +34,10 @@ nav.nav {
                 color: inherit;
                 text-decoration: none;
             }
+        }
+        .thrown {
+            opacity: 1;
+            pointer-events: auto;
         }
     }
 }

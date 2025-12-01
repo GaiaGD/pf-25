@@ -92,7 +92,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Nav bringBackCard={bringBackCard} items={thrownCards.map(card => ({ label: card.heading, link: card.link }))} />
+        <Nav bringBackCard={bringBackCard} thrownCards={thrownCards.map(card => ({ heading: card.heading, link: card.link }))} allCards={cards.map(card => ({ heading: card.heading, link: card.link }))} />
 
         <AnimatePresence>
         {
@@ -107,7 +107,7 @@ export default function Home() {
                 initial: { 
                   y: "-100vh",
                   x: `-50%`,
-                  rotate: index * 2 - activeCards.length
+                  rotate: (activeCards.length + index) - activeCards.length
                 },
                 animate: {
                   y: `-50%`,
@@ -115,20 +115,20 @@ export default function Home() {
                   zIndex: activeCards.length - index,
                   transition: {
                     duration: 0.5,
-                    ease: "easeIn",
+                    ease: "circInOut",
                   }
                 },
                 exit: {
-                  y: "-100vh",
+                  y: "-150vh",
                   x: `-50%`,
                   transition: {
                     duration: 0.5,
-                    ease: "easeInOut",
+                    ease: "circInOut",
                   },
                 },
                 transition: {
                   duration: 0.5,
-                  ease: "easeInOut",
+                  ease: "circInOut",
                 }
               }}
             />
