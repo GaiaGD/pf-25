@@ -4,31 +4,43 @@
             "id": 1,
             "link": "about",
             "heading": "Oh, hey there!",
-            "subheading": "My name is Gaia Di Gregorio, I am a front-end developer and I love creating bold and user-friendly websites that you'll hardly forget. Keep going and see what this is all about!"
+            "subheading": [
+                "My name is Gaia Di Gregorio, I am a front-end developer and I love creating bold and user-friendly websites that will stick with you",
+                "Keep going and see what this is all about!"
+            ]
         },
         {
             "id": 2,
             "link": "skills",
             "heading": "What can I do",
-            "subheading": "Learn more about our company, mission, and values. We're dedicated to providing exceptional service and building lasting relationships. Our team is passionate about what we do and committed to your success."
+            "subheading": [
+                "I'm good with languages. Personally and professionally.",
+                "And with libraries and frameworks too.",
+                "I have a solid experience with React, Next.js, TypeScript and SCSS."
+            ]
         },
         {
             "id": 3,
             "link": "clients",
             "heading": "Who did I work with",
-            "subheading": "Explore the wide range of services we offer to our clients. From consulting to implementation, we provide comprehensive solutions tailored to your needs. Our expertise spans multiple industries and technologies."
+            "subheading": [
+                "I was lucky to collaborate with amazing clients from different industries.",
+                "Worth to mention some of them are: iFit, CapitalOne, Degreed, Trex and others."
+            ]
         },
         {
             "id": 4,
             "link": "else",
             "heading": "What else can I say?",
-            "subheading": "Find out how to get in touch with our support team. We're available through multiple channels to assist you whenever you need help. Your satisfaction is our top priority and we're here to support you."
+            "subheading": [
+                "Been exposed to diversity all my life, I give my best outside safe spaces",
+                "When I'm not online, I'm learning jiu jitsu, visiting new places, or ironically-ish singing karaoke."
+            ]
         },
         {
             "id": 5,
             "link": "contact",
-            "heading": "Where to find me",
-            "subheading": "Begin your journey with us by following these simple steps. Our onboarding process is designed to be smooth and straightforward. You'll be up and running in no time with our guided setup."
+            "heading": "Get in touch"
         }
     ]
 }

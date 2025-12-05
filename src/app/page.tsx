@@ -105,7 +105,7 @@ export default function Home() {
               id={card.id}
               motionProps={{
                 initial: { 
-                  y: "-100vh",
+                  y: "-150vh",
                   x: `-50%`,
                   rotate: (activeCards.length + index) - activeCards.length
                 },

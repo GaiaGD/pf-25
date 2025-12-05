@@ -6,7 +6,7 @@ interface CardLink {
 
 interface CardProps extends CardLink {
   id: number;
-  subheading: string;
+  subheading?: string[];
   motionProps?: HTMLMotionProps<"div">;
 }
 
