@@ -1,0 +1,13 @@
+.emptyDeck {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	transition: opacity 1s ease-in-out 0.2s;
+
+	&.active {
+		opacity: 1;
+	}
+
+}

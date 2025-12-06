@@ -9,6 +9,7 @@ import { cards } from "../../cards.json";
 
 import Card from "./components/Card/Card";
 import Nav from "./components/Nav/Nav";
+import EmptyDeck from "./components/EmptyDeck/EmptyDeck";
 export default function Home() {
 
   // states
@@ -135,6 +136,9 @@ export default function Home() {
           ))
         }
         </AnimatePresence>
+
+        <EmptyDeck emptyDeck={activeCards.length === 0} />
+
       </main>
     </div>
   );

@@ -4,6 +4,10 @@ interface CardLink {
   link: string;
 }
 
+interface EmptyDeckProps {
+  emptyDeck?: boolean;
+}
+
 interface CardProps extends CardLink {
   id: number;
   subheading?: string[];
