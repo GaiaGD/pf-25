@@ -19,3 +19,16 @@
   white-space: nowrap;
   border: 0;
 }
+
+// Generic media query mixin
+@mixin respond($breakpoint) {
+  $size: map-get($breakpoints, $breakpoint);
+
+  @if $size == null {
+    @error "Unknown breakpoint `#{$breakpoint}`. Check your \$breakpoints map.";
+  }
+
+  @media (min-width: $size) {
+    @content;
+  }
+}
