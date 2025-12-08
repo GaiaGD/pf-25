@@ -89,6 +89,18 @@ export default function Home() {
     }, 1500);
   }
 
+  const bringBackAllCards = () => {
+    isScrollingRef.current = true;
+    setIsScrolling(true);
+    setActiveCards([...thrownCardsRef.current, ...activeCardsRef.current]);
+    setThrownCards([]);
+
+    setTimeout(() => {
+      isScrollingRef.current = false;
+      setIsScrolling(false);
+    }, 1500);
+  }
+
   
   return (
     <div className={styles.page}>
@@ -137,7 +149,7 @@ export default function Home() {
         }
         </AnimatePresence>
 
-        <EmptyDeck emptyDeck={activeCards.length === 0} />
+        <EmptyDeck bringBackAllCards={bringBackAllCards} emptyDeck={activeCards.length === 0} />
 
       </main>
     </div>

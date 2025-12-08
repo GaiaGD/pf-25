@@ -5,6 +5,7 @@
 	transform: translate(-50%, -50%);
 	opacity: 0;
 	transition: opacity 1s ease-in-out 0.2s;
+	cursor: pointer;
 
 	&.active {
 		opacity: 1;

@@ -1,5 +1,3 @@
-// Shared SCSS - Import this in component modules
-// This combines variables and mixins for easy importing
-
-@import './variables.scss';
-@import './mixins.scss';
+@import './abstracts/variables';
+@import './abstracts/mixins';
+@import './abstracts/breakpoints';

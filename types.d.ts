@@ -5,6 +5,7 @@ interface CardLink {
 }
 
 interface EmptyDeckProps {
+  bringBackAllCards: () => void;
   emptyDeck?: boolean;
 }
 

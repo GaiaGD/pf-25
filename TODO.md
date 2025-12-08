@@ -1,0 +1,3 @@
+- enable scrolling once out of screen
+- rotate from negative
+- mobile
