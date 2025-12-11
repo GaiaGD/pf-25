@@ -10,7 +10,16 @@ import { cards } from "../../cards.json";
 import Card from "./components/Card/Card";
 import Nav from "./components/Nav/Nav";
 import EmptyDeck from "./components/EmptyDeck/EmptyDeck";
+
+import { useThreeLiquidMetal } from "@/app/utils/Canvas"
+
+
 export default function Home() {
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useThreeLiquidMetal(containerRef);
+
 
   // states
 
@@ -104,7 +113,7 @@ export default function Home() {
   
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
+      <main ref={containerRef} className={styles.main}>
         <Nav bringBackCard={bringBackCard} thrownCards={thrownCards.map(card => ({ heading: card.heading, link: card.link }))} allCards={cards.map(card => ({ heading: card.heading, link: card.link }))} />
 
         <AnimatePresence>
