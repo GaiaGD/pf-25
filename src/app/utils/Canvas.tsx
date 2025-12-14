@@ -11,7 +11,6 @@ export function useThreeLiquidMetal(containerRef: React.RefObject<HTMLDivElement
   const mouse = useRef({ x: 0, y: 0 }); // Current smooth mouse position (-0.5 to 0.5)
   const mouseVelocity = useRef({ x: 0, y: 0 }); // How fast mouse is moving (for trailing effects)
   const prevMouse = useRef({ x: 0, y: 0 }); // Previous mouse position (to calculate velocity)
-  const isMouseMoving = useRef(false); // Flag to track if mouse is currently moving
   const stopTimeout = useRef<NodeJS.Timeout | null>(null); // Timer to detect when mouse stops
 
   useEffect(() => {
@@ -25,8 +24,6 @@ export function useThreeLiquidMetal(containerRef: React.RefObject<HTMLDivElement
     };
 
     // Helper function: Linear interpolation for smooth transitions
-    // lerp(0, 10, 0.5) = 5 (halfway between 0 and 10)
-    // lerp(0, 10, 0.1) = 1 (10% of the way from 0 to 10)
     const lerp = (a: number, b: number, t: number) => a * (1 - t) + b * t;
 
     // WebGL Renderer - This is what converts our 3D scene into 2D pixels on screen
@@ -51,13 +48,13 @@ export function useThreeLiquidMetal(containerRef: React.RefObject<HTMLDivElement
 
     // Custom Shader Material - creates the liquid metal effect
     
-    // Vertex Shader - positions vertices and passes UV coordinates to fragment shader
+    // Vertex Shader - determines the position of each vertex
     const vertex = `
       varying vec2 vUv; // Pass UV coordinates to fragment shader
+      
       void main() {
-          // Standard vertex transformation (converts 3D position to screen position)
-          gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0);
-          vUv = uv; // Pass texture coordinates to fragment shader
+        vUv = uv; // Forward texture coordinates
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
       }
     `;
 
@@ -66,6 +63,7 @@ export function useThreeLiquidMetal(containerRef: React.RefObject<HTMLDivElement
       uniform vec2 uResolution; // Screen dimensions
       uniform vec2 uMouse; // Mouse position for interaction
       uniform vec2 uMouseVelocity; // Mouse velocity for trailing effects
+      uniform float uFadeFactor; // Controls fade between effect and base color
       varying vec2 vUv; // UV coordinates from vertex shader
       
       void main() {
@@ -120,8 +118,8 @@ export function useThreeLiquidMetal(containerRef: React.RefObject<HTMLDivElement
           
           // Create color patterns that follow the trail
           float whiteArea = cos(len * 0.4 + uMouse.x * 4.0 + trailAlignment * 2.0) * colorIntensity;
-          float redArea = cos(len * 0.7 + uMouse.y * 5.0 + trailAlignment * 1.5) * colorIntensity;
-          float purpleArea = cos(len * 1.1 + uMouse.x * 3.5 + trailAlignment * 2.5) * colorIntensity;
+          float redArea = cos(len * 0.7 + uMouse.y * 5.0 + trailAlignment * 2.5) * colorIntensity;
+          float purpleArea = cos(len * 1.1 + uMouse.x * 3.5 + trailAlignment * 1.5) * colorIntensity;
           float greenArea = cos(len * 0.5 + uMouse.y * 6.5 + trailAlignment * 1.8) * colorIntensity;
           float yellowArea = cos(len * 1.0 + uMouse.x * 4.2 + trailAlignment * 2.2) * colorIntensity;
           float blueArea = cos(len * 0.8 + uMouse.y * 5.8 + trailAlignment * 1.9) * colorIntensity;
@@ -137,7 +135,8 @@ export function useThreeLiquidMetal(containerRef: React.RefObject<HTMLDivElement
           
           // STEP 12: Combine all colors together
           vec3 mouseColors = white + red + purple + green + yellow + blue;
-          vec3 finalColor = baseColor + mouseColors;
+          // Apply fade factor to smoothly transition between effect and base color
+          vec3 finalColor = baseColor + (mouseColors * uFadeFactor);
           
           // STEP 13: Output the final pixel color
           // gl_FragColor is the final color that appears on screen
@@ -155,6 +154,7 @@ export function useThreeLiquidMetal(containerRef: React.RefObject<HTMLDivElement
         uResolution: { value: new THREE.Vector2(viewport.width, viewport.height) }, // Screen size
         uMouse: { value: new THREE.Vector2(mouse.current.x, mouse.current.y) }, // Mouse position
         uMouseVelocity: { value: new THREE.Vector2(0, 0) }, // Mouse speed/direction
+        uFadeFactor: { value: 1.0 }, // Controls fade between effect and base color (1.0 = full effect, 0.0 = base only)
       },
     });
 
@@ -190,7 +190,7 @@ export function useThreeLiquidMetal(containerRef: React.RefObject<HTMLDivElement
       // Check if mouse is actually moving (with small threshold)
       const movementThreshold = 0.001;
       const isMoving = Math.abs(newVelX) > movementThreshold || Math.abs(newVelY) > movementThreshold;
-      
+      console.log("Mouse moving:", isMoving);
       if (isMoving) {
         // Clear any existing timeout
         if (stopTimeout.current) {
@@ -211,16 +211,35 @@ export function useThreeLiquidMetal(containerRef: React.RefObject<HTMLDivElement
         // Update shader uniforms and render
         material.uniforms.uMouse.value.set(mouse.current.x, mouse.current.y);
         material.uniforms.uMouseVelocity.value.set(mouseVelocity.current.x, mouseVelocity.current.y);
+        material.uniforms.uFadeFactor.value = 1.0; // Restore full effect when moving
         renderer.render(scene, camera);
         
-        // Set timeout to reset when movement stops
+        // Set timeout to start fade-out when movement stops
         stopTimeout.current = setTimeout(() => {
-          // Immediately reset to calm state
+          // Immediately reset velocity to stop trailing effects
           mouseVelocity.current.x = 0;
           mouseVelocity.current.y = 0;
           material.uniforms.uMouseVelocity.value.set(0, 0);
-          renderer.render(scene, camera);
-        }, 100); // Reset after 100ms of no movement
+          
+          // Start smooth fade-out animation
+          const fadeOut = () => {
+            const currentFade = material.uniforms.uFadeFactor.value;
+            const newFade = lerp(currentFade, 0.0, 0.08); // Gradually fade to 0
+            
+            material.uniforms.uFadeFactor.value = newFade;
+            renderer.render(scene, camera);
+            
+            // Continue fading if not close enough to target
+            if (newFade > 0.01) {
+              requestAnimationFrame(fadeOut);
+            } else {
+              // Ensure complete fade
+              material.uniforms.uFadeFactor.value = 0.0;
+              renderer.render(scene, camera);
+            }
+          };
+          fadeOut();
+        }, 100); // Start fade after 100ms of no movement
       }
     };
     window.addEventListener("mousemove", handleMouseMove);
