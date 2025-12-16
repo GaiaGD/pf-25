@@ -6,7 +6,7 @@ nav.nav {
 	color: $white;
 	z-index: 1000;
 
-	@include respond(tablet) {
+	@include bpMedium {
 		height: 3rem;
 	}
 
@@ -21,7 +21,7 @@ nav.nav {
 		align-items: center;
 		gap: 1.5rem;
 
-		@include respond(tablet) {
+		@include bpMedium {
 			flex-direction: row;
 		}
 

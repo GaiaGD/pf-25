@@ -101,7 +101,7 @@ export default function Home() {
   const bringBackAllCards = () => {
     isScrollingRef.current = true;
     setIsScrolling(true);
-    setActiveCards([...thrownCardsRef.current, ...activeCardsRef.current]);
+    setActiveCards([...cards]);
     setThrownCards([]);
 
     setTimeout(() => {
