@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
 import styles from "./Card.module.scss";
+import SwipeUpIcon from '@/app/assets/swipeup';
 
-export default function Card({ heading, subheading, motionProps }: CardProps) {
+export default function Card({ heading, subheading, motionProps, index, id }: CardProps) {
 
   return (
-    <motion.div className={styles.card} {...motionProps}>
+    <motion.div style={{ rotate: `${index}deg` }} className={styles.card} {...motionProps}>
       <h2 className={styles.heading}>{heading}</h2>
       <div className={styles.container}>
         {(subheading && subheading.length > 0) &&
@@ -13,6 +14,11 @@ export default function Card({ heading, subheading, motionProps }: CardProps) {
           )
         )}
       </div>
+      { id === 1 &&
+        <div>
+          <SwipeUpIcon className={styles.rotatingIcon} />
+        </div>
+      }
     </motion.div>
   );
 }

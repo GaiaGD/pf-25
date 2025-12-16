@@ -4,10 +4,11 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	opacity: 0;
-	transition: opacity 1s ease-in-out 0.2s;
+	transition: opacity 1s ease-in-out 0.1s;
 	cursor: pointer;
 	color: $white;
-
+	font-family: var(--font-instrument-serif);
+	font-size: 2.5rem;
 	&.active {
 		opacity: 1;
 	}

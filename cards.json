@@ -5,7 +5,8 @@
             "link": "about",
             "heading": "Oh, hey there!",
             "subheading": [
-                "My name is Gaia Di Gregorio, I am a front-end developer and I love creating bold and user-friendly websites: solid, scalable and that will stick with you",
+                "My name is Gaia Di Gregorio, I am a front-end developer.",
+                "I love creating bold and user-friendly websites: solid, scalable and that will stick with you",
                 "Keep going and see what this is all about!"
             ]
         },
@@ -43,7 +44,9 @@
             "heading": "Get in touch",
             "subheading": [
                 "Easy:",
-                "You can find me on LinkedIn or send me an email at hi.gaiadg@gmail.com"
+                "You can find me on LinkedIn",
+                "or send me an email at",
+                "hi.gaiadg@gmail.com"
             ]
         }
     ]

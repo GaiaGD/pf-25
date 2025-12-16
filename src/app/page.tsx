@@ -121,6 +121,7 @@ export default function Home() {
           activeCards.map((card, index) => (
             <Card
               key={card.id}
+              index={index}
               link={card.link}
               heading={card.heading}
               subheading={card.subheading}
@@ -129,7 +130,7 @@ export default function Home() {
                 initial: { 
                   y: "-150vh",
                   x: `-50%`,
-                  rotate: (activeCards.length + index) - activeCards.length
+                  // rotate: (activeCards.length + index) - activeCards.length
                 },
                 animate: {
                   y: `-50%`,

@@ -224,7 +224,7 @@ export function useThreeLiquidMetal(containerRef: React.RefObject<HTMLDivElement
           // Start smooth fade-out animation
           const fadeOut = () => {
             const currentFade = material.uniforms.uFadeFactor.value;
-            const newFade = lerp(currentFade, 0.0, 0.08); // Gradually fade to 0
+            const newFade = lerp(currentFade, 0.0, 0.03); // Gradually fade to 0
             
             material.uniforms.uFadeFactor.value = newFade;
             renderer.render(scene, camera);

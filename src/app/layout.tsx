@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif, Rubik } from "next/font/google";
 import "./styles/globals.scss"
 
 const geistSans = Geist({
@@ -19,6 +19,11 @@ const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
 });
 
+const rubik = Rubik({
+  variable: "--font-rubik",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -32,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${rubik.variable}`}>
         {children}
       </body>
     </html>
