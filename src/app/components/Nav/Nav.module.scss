@@ -13,9 +13,13 @@ nav.nav {
 		height: 100%;
 		margin: 0;
 		padding: 0 1rem;
-		justify-content: center;
+		justify-content: space-between;
 		align-items: center;
 		gap: 1.5rem;
+
+		@include bpMedium {
+			justify-content: center;
+		}
 
 		.navItem {
 			cursor: pointer;
@@ -40,7 +44,7 @@ nav.nav {
 				cursor: pointer;
 				.icon {
 					path {
-						fill: $white;
+						// fill: $white;
 					}
 					@include bpMedium {
 						display: none;
