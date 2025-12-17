@@ -16,9 +16,9 @@ export default function Nav({ allCards, thrownCards, bringBackCard }: NavProps) 
                 ${isCardThrown(card) ? styles.thrown : ''}
                 `}
               >
-                <div aria-label={card.heading} onClick={() => bringBackCard(card.link)} className={styles.navLink}>
-                {card.heading}
-                </div>
+                <button aria-label={card.heading} onClick={() => bringBackCard(card.link)} className={styles.navLink}>
+                  {card.heading}
+                </button>
               </li>
             ))}
         </ul>
