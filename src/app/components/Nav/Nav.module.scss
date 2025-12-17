@@ -6,7 +6,7 @@ nav.nav {
 	color: $white;
 	z-index: 1000;
 
-	@include respond(tablet) {
+	@include bpMedium {
 		height: 3rem;
 	}
 
@@ -21,6 +21,13 @@ nav.nav {
 		align-items: center;
 		gap: 1.5rem;
 
+<<<<<<< HEAD
+=======
+		@include bpMedium {
+			flex-direction: row;
+		}
+
+>>>>>>> 53223897e1dcabe2cb89b041affebc79b9cc4c73
 		.navItem {
 			cursor: pointer;
 			font-size: 1.4rem;

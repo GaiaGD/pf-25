@@ -18,11 +18,16 @@ $border-radius-small: 1rem;
 $border-radius-medium: 2rem;
 $border-radius-large: 3rem;
 
+// Breakpoints
+$breakpoint-s: 320px;
+$breakpoint-m: 769px;
+$breakpoint-l: 1025px;
+$breakpoint-xl: 1441px;
 
-// padding sizes
-$padding-small: 1rem;
-$padding-medium: 1.5rem;
-$padding-large: 2rem;
+// Vertical Breakpoints
+$breakpoint-height-sm: 600px;
+$breakpoint-height-md: 800px;
+$breakpoint-height-lg: 900px;
 
 // Typography
 $font-family-base: 'Arial, Helvetica, sans-serif';
