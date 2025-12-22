@@ -15,7 +15,7 @@ export default function Card({ heading, subheading, motionProps, index, id }: Ca
         )}
       </div>
       { id === 1 &&
-        <div>
+        <div className={styles.swipeUp}>
           <SwipeUpIcon className={styles.rotatingIcon} />
         </div>
       }

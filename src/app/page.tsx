@@ -40,14 +40,57 @@ export default function Home() {
   }, [activeCards, thrownCards]);
 
 
-
+// Handle scroll to throw/bring back cards
   useEffect(() => {
+
+    let startY = 0
+
+    const handlePointerDown = (e: PointerEvent) => {
+      startY = e.clientY;
+      if (e.target instanceof Element) {
+        e.target.setPointerCapture(e.pointerId);
+      }
+    }
+
+    const handlePointerUp = (e: PointerEvent) => {
+      const deltaY = startY - e.clientY;
+      const minDistance = 50; // Minimum distance to consider as a scroll
+
+      if (Math.abs(deltaY) < minDistance) return;
+
+      if (deltaY > 0 && activeCardsRef.current.length > 0) {
+        // Scrolling down - throw top card out
+        isScrollingRef.current = true;
+        setIsScrolling(true);
+        const [topCard, ...rest] = activeCardsRef.current;
+        setActiveCards(rest);
+        setThrownCards([...thrownCardsRef.current, topCard]);
+        
+        setTimeout(() => {
+          isScrollingRef.current = false;
+          setIsScrolling(false);
+        }, 1500);
+      } else if (deltaY < 0 && thrownCardsRef.current.length > 0) {
+        // Scrolling up - bring back last thrown card
+        isScrollingRef.current = true;
+        setIsScrolling(true);
+        const lastThrown = thrownCardsRef.current[thrownCardsRef.current.length - 1];
+        setThrownCards(thrownCardsRef.current.slice(0, -1));
+        setActiveCards([lastThrown, ...activeCardsRef.current]);
+        
+        setTimeout(() => {
+          isScrollingRef.current = false;
+          setIsScrolling(false);
+        }, 1500);
+      }
+
+    }
+
+
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
       
       if (isScrollingRef.current) return;
-
-
 
       if (e.deltaY > 0 && activeCardsRef.current.length > 0) {
         // Scrolling down - throw top card out
@@ -79,7 +122,15 @@ export default function Home() {
     };
 
     window.addEventListener('wheel', handleWheel, { passive: false });
-    return () => window.removeEventListener('wheel', handleWheel);
+
+    containerRef.current?.addEventListener('pointerdown', handlePointerDown);
+    containerRef.current?.addEventListener('pointerup', handlePointerUp);
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel)
+      containerRef.current?.removeEventListener('pointerdown', handlePointerDown);
+      containerRef.current?.removeEventListener('pointerup', handlePointerUp);
+    };
   }, []);
 
   const bringBackCard = (link: string) => {

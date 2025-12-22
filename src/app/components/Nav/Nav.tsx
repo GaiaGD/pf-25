@@ -1,7 +1,9 @@
-import StacksIcon from "@/app/assets/stacks";
+import StacksIcon from '@/app/assets/stacks';
+import MoreIcon from '@/app/assets/more'
 import styles from "./Nav.module.scss";
-import HelloIcon from '@/app/assets/hello';
+import HelloIcon from "@/app/assets/hello";
 import ClientsIcon from "@/app/assets/clients";
+import ContactIcon from "@/app/assets/contact";
 
 export default function Nav({ allCards, thrownCards, bringBackCard }: NavProps) {
 
@@ -19,9 +21,11 @@ export default function Nav({ allCards, thrownCards, bringBackCard }: NavProps) 
                 `}
               >
                 <button aria-label={card.heading} onClick={() => bringBackCard(card.link)} className={styles.navLink}>
-                  {card.link === 'about' && <HelloIcon className={styles.icon} />}
-                  {card.link === 'skills' && <StacksIcon className={styles.icon} />}
-                  {card.link === 'clients' && <ClientsIcon className={styles.icon} />}
+                  {card.link === 'about' && <HelloIcon className={`${styles.icon} about`} />}
+                  {card.link === 'skills' && <StacksIcon className={`${styles.icon} skills`} />}
+                  {card.link === 'clients' && <ClientsIcon className={`${styles.icon} clients`} />}
+                  {card.link === 'else' && <MoreIcon className={`${styles.icon} else`} />}
+                  {card.link === 'contact' && <ContactIcon className={`${styles.icon} contact`} />}
                   <span>{card.heading}</span>
                 </button>
               </li>
