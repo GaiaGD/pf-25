@@ -5,7 +5,7 @@ import SwipeUpIcon from '@/app/assets/swipeup';
 export default function Card({ heading, subheading, motionProps, index, id }: CardProps) {
 
   return (
-    <motion.div style={{ rotate: `${index}deg` }} className={styles.card} {...motionProps}>
+    <motion.div style={{ rotate: `${index*2}deg` }} className={styles.card} {...motionProps}>
       <h2 className={styles.heading}>{heading}</h2>
       <div className={styles.container}>
         {(subheading && subheading.length > 0) &&
