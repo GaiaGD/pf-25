@@ -5,7 +5,7 @@
             "link": "about",
             "heading": "Oh, hey there!",
             "subheading": [
-                "My name is Gaia Di Gregorio, I am a front-end developer.",
+                "My name is Gaia Di Gregorio and I am a front-end developer.",
                 "I love creating bold and user-friendly websites: solid, scalable and that will stick with you",
                 "Keep going and see what this is all about!"
             ]
@@ -15,7 +15,7 @@
             "link": "skills",
             "heading": "What can I do",
             "subheading": [
-                "I'm good with languages. Personally and professionally.",
+                "I'm good with languages.<br/>Personally and professionally.",
                 "And with libraries and frameworks too.",
                 "I have a solid experience with React, Next.js, TypeScript and SCSS."
             ]
@@ -26,7 +26,7 @@
             "heading": "Who did I work with",
             "subheading": [
                 "I was lucky to collaborate with amazing clients from different industries.",
-                "Worth to mention some of them are: iFit, CapitalOne, Degreed, Trex and others."
+                "Worth to mention some of them: <a href='https://www.ifit.com' target='_blank' rel='noopener noreferrer'>iFit</a>, <a href='https://www.capitalone.com' target='_blank' rel='noopener noreferrer'>CapitalOne</a>, <a href='https://degreed.com/experience/our-platform/' target='_blank' rel='noopener noreferrer'>Degreed</a>, <a href='https://www.trex.com' target='_blank' rel='noopener noreferrer'>Trex</a> and others."
             ]
         },
         {
@@ -44,9 +44,9 @@
             "heading": "Get in touch",
             "subheading": [
                 "Easy:",
-                "You can find me on LinkedIn",
+                "You can find me on <a href='https://www.linkedin.com/in/gaiadg/' target='_blank' rel='noopener noreferrer'>LinkedIn</a>",
                 "or send me an email at",
-                "hi.gaiadg@gmail.com"
+                "<a href='mailto:hi.gaiadg@gmail.com'>hi.gaiadg@gmail.com</a>"
             ]
         }
     ]

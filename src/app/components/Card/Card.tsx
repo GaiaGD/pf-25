@@ -10,7 +10,7 @@ export default function Card({ heading, subheading, motionProps, index, id }: Ca
       <div className={styles.container}>
         {(subheading && subheading.length > 0) &&
           subheading.map((line, index) => (
-            <p key={index} className={styles.subheading}>{line}</p>
+            <p key={index} className={styles.subheading} dangerouslySetInnerHTML={{ __html: line }} />
           )
         )}
       </div>

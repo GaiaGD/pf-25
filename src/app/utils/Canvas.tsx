@@ -190,7 +190,7 @@ export function useThreeLiquidMetal(containerRef: React.RefObject<HTMLDivElement
       // Check if mouse is actually moving (with small threshold)
       const movementThreshold = 0.001;
       const isMoving = Math.abs(newVelX) > movementThreshold || Math.abs(newVelY) > movementThreshold;
-      console.log("Mouse moving:", isMoving);
+
       if (isMoving) {
         // Clear any existing timeout
         if (stopTimeout.current) {

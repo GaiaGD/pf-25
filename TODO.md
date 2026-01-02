@@ -1,3 +1,4 @@
+- layout
 - enable scrolling once out of screen
-- rotate from negative
-- mobile
+- daisable ripple on mobile
+- ripple absorbed
