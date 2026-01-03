@@ -26,7 +26,7 @@
             "heading": "Who did I work with",
             "subheading": [
                 "I was lucky to collaborate with amazing clients from different industries.",
-                "Worth to mention some of them: <a href='https://www.ifit.com' target='_blank' rel='noopener noreferrer'>iFit</a>, <a href='https://www.capitalone.com' target='_blank' rel='noopener noreferrer'>CapitalOne</a>, <a href='https://degreed.com/experience/our-platform/' target='_blank' rel='noopener noreferrer'>Degreed</a>, <a href='https://www.trex.com' target='_blank' rel='noopener noreferrer'>Trex</a> and others."
+                "Worth to mention some of them: <a class='ifit' href='https://www.ifit.com' target='_blank' rel='noopener noreferrer'>iFit</a>, <a class='capitalone' href='https://www.capitalone.com'  target='_blank' rel='noopener noreferrer'>CapitalOne</a>, <a href='https://degreed.com/experience/our-platform/' class='degreed' target='_blank' rel='noopener noreferrer'>Degreed</a>, <a href='https://www.trex.com' class='trex' target='_blank' rel='noopener noreferrer'>Trex</a> and others."
             ]
         },
         {
@@ -35,7 +35,7 @@
             "heading": "What else can I say?",
             "subheading": [
                 "Been exposed to diversity all my life, I give my best outside safe spaces",
-                "When I'm not online, I'm learning jiu jitsu, visiting new places, or ironically-ish singing karaoke."
+                "When I'm not online, I'm practicing jiu jitsu, visiting new places, or ironically-ish singing karaoke."
             ]
         },
         {
@@ -44,9 +44,9 @@
             "heading": "Get in touch",
             "subheading": [
                 "Easy:",
-                "You can find me on <a href='https://www.linkedin.com/in/gaiadg/' target='_blank' rel='noopener noreferrer'>LinkedIn</a>",
+                "You can find me on <a href='https://www.linkedin.com/in/gaiadg/' class='linkedin' target='_blank' rel='noopener noreferrer'>LinkedIn</a>, <a href='https://github.com/GaiaGD' class='github' target='_blank' rel='noopener noreferrer'>GitHub</a>,",    
                 "or send me an email at",
-                "<a href='mailto:hi.gaiadg@gmail.com'>hi.gaiadg@gmail.com</a>"
+                "<a class='email' href='mailto:hi.gaiadg@gmail.com'>hi.gaiadg@gmail.com</a>"
             ]
         }
     ]
