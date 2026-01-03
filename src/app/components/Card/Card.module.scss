@@ -16,8 +16,9 @@
   width: 80%;
   max-width: 40rem;
   height: 100%;
-  max-height: 60vh;
+  max-height: 65vh;
   text-align: center;
+  justify-content: center;
 
   @include bpMedium {
     padding: 6rem 2rem 4rem;
@@ -34,37 +35,64 @@
     color: white;
   }
   
-  .heading {
-    font-family: var(--font-instrument-serif);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-weight: 500;
-    letter-spacing: -0.05rem;
-    @include bpLarge {
-      font-size: 3.5rem;
-    }
-  }
-
-
   .container {
+    // 👇🏼 not setting this to 100% causes issues with chrome mobile height
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    .subheading {
-      font-size: 1rem;
-      font-weight: 300;
-      width: 80%;
-      margin: 0 auto;
-      line-height: 130%;
-      font-family: var(--font-rubik);
-      @include bpLarge {
-        font-size: 1.2rem;
-      }
+  }
+
+  .headingContainer {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .icon {
+    display: none;
+    max-width: 3rem;
+    max-height: 3rem;
+    path {
+      fill: $black;
+    }
+    @include bpMedium {
+      display: block;
+    }
+    &:global(.else) {
+      max-width: 3.6rem;
+      max-height: 3.6rem;
     }
   }
+
+  .heading {
+    font-family: var(--font-instrument-serif);
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -0.05rem;
+    @include bpLarge {
+      font-size: 3rem;
+    }
+  }
+
+  .subheading {
+    font-size: 1rem;
+    font-weight: 300;
+    width: 80%;
+    margin: 0 auto;
+    line-height: 130%;
+    font-family: var(--font-rubik);
+    @include bpLarge {
+      font-size: 1.1rem;
+    }
+  }
+
 }
 
 // SVG rotation animation
@@ -86,7 +114,11 @@
   }
 }
 .swipeUp {
-  margin-top: 2rem;
+  margin-top: 1rem;
+  fill: $black;
+  path {
+    fill: $black;
+  }
   .rotatingIcon {
     display: inline-block;
     animation: smoothRotate 1.5s ease-in-out infinite;

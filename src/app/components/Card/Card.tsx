@@ -1,13 +1,23 @@
 import { motion } from 'framer-motion';
 import styles from "./Card.module.scss";
 import SwipeUpIcon from '@/app/assets/swipeup';
+import StacksIcon from '@/app/assets/stacks';
+import MoreIcon from '@/app/assets/more'
+import ClientsIcon from "@/app/assets/clients";
+import ContactIcon from "@/app/assets/contact";
 
-export default function Card({ heading, subheading, motionProps, index, id }: CardProps) {
+export default function Card({ heading, subheading, motionProps, link, index, id }: CardProps) {
 
   return (
     <motion.div style={{ rotate: `${index*2}deg` }} className={styles.card} {...motionProps}>
-      <h2 className={styles.heading}>{heading}</h2>
       <div className={styles.container}>
+        <div className={styles.headingContainer}>
+          {link === 'skills' && <StacksIcon className={`${styles.icon} skills`} />}
+          {link === 'clients' && <ClientsIcon className={`${styles.icon} clients`} />}
+          {link === 'else' && <MoreIcon className={`${styles.icon} else`} />}
+          {link === 'contact' && <ContactIcon className={`${styles.icon} contact`} />}
+          <h2 className={styles.heading}>{heading}</h2>
+        </div>
         {(subheading && subheading.length > 0) &&
           subheading.map((line, index) => (
             <p key={index} className={styles.subheading} dangerouslySetInnerHTML={{ __html: line }} />

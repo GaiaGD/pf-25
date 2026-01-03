@@ -31,9 +31,11 @@ nav.nav {
 			font-weight: 500;
 			color: var(--text-primary);
 			text-decoration: none;
-			opacity: 0.3;
+			opacity: 0.4;
+			filter: blur(0.2rem);
+
 			pointer-events: none;
-			transition: opacity 0.3s ease, text-decoration 0.3s ease;
+			transition: opacity 0.3s ease, text-decoration 0.3s ease, filter 0.3s ease;
 			font-family: var(--font-instrument-serif);
 
 			&:hover {
@@ -71,6 +73,7 @@ nav.nav {
 		.thrown {
 			opacity: 1;
 			pointer-events: auto;
+			filter: blur(0px);
 		}
 	}
 }

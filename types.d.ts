@@ -12,6 +12,7 @@ interface EmptyDeckProps {
 interface CardProps extends CardLink {
   index?: number;
   id: number;
+  link: string;
   subheading?: string[];
   motionProps?: HTMLMotionProps<"div">;
 }
