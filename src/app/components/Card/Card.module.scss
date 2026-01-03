@@ -82,12 +82,15 @@
   }
 
   .subheading {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 300;
     width: 80%;
     margin: 0 auto;
     line-height: 130%;
     font-family: var(--font-rubik);
+    @include bpLarge {
+      font-size: 1.3rem;
+    }
   }
 
 }
