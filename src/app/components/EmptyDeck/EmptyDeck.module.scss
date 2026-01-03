@@ -8,8 +8,18 @@
 	cursor: pointer;
 	color: $white;
 	font-family: var(--font-instrument-serif);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
 	&.active {
 		opacity: 1;
+	}
+
+	.icon {
+		max-width: 3rem;
+		max-height: 3rem;
 	}
 
   p {
