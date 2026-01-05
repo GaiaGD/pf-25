@@ -3,7 +3,7 @@
 
 .card {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(0%, 0%) rotate(0deg) ease-in-out;
   transition: rotate 1s ease-in-out;
@@ -23,6 +23,7 @@
 
   @include bpMedium {
     padding: 4rem 2rem;
+    top: 50%;
     width: 100%;
   }
 

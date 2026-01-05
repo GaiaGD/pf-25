@@ -23,6 +23,8 @@ export function useThreeLiquidMetal(containerRef: React.RefObject<HTMLDivElement
       height: window.innerHeight,
     };
 
+    if (viewport.width <= 768) return;
+
     // Helper function: Linear interpolation for smooth transitions
     const lerp = (a: number, b: number, t: number) => a * (1 - t) + b * t;
 
