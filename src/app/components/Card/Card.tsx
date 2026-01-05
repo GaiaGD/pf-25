@@ -6,10 +6,10 @@ import MoreIcon from '@/app/assets/more'
 import ClientsIcon from "@/app/assets/clients";
 import ContactIcon from "@/app/assets/contact";
 
-export default function Card({ heading, subheading, motionProps, link, index, id }: CardProps) {
+export default function Card({ heading, subheading, motionProps, link, id }: CardProps) {
 
   return (
-    <motion.div style={{ rotate: `${index*2}deg` }} className={styles.card} {...motionProps}>
+    <motion.div className={styles.card} {...motionProps}>
       <div className={styles.container}>
         <div className={styles.headingContainer}>
           {link === 'skills' && <StacksIcon className={`${styles.icon} skills`} />}

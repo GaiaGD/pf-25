@@ -181,12 +181,12 @@ export default function Home() {
                 initial: { 
                   y: "-150vh",
                   x: `-50%`,
-                  // rotate: (activeCards.length + index) - activeCards.length
                 },
                 animate: {
                   y: `-50%`,
                   x: `-50%`,
                   zIndex: activeCards.length - index,
+                  rotate: `${index*2}deg`,
                   transition: {
                     duration: 0.5,
                     ease: "circInOut",
