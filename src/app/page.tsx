@@ -10,6 +10,7 @@ import { cards } from "../../cards.json";
 import Card from "./components/Card/Card";
 import Nav from "./components/Nav/Nav";
 import EmptyDeck from "./components/EmptyDeck/EmptyDeck";
+import Footer from "./components/Footer/Footer";
 
 import { useThreeLiquidMetal } from "@/app/utils/Canvas"
 
@@ -211,6 +212,8 @@ export default function Home() {
         </AnimatePresence>
 
         <EmptyDeck bringBackAllCards={bringBackAllCards} emptyDeck={activeCards.length === 0} />
+
+        <Footer />
 
       </main>
     </div>
