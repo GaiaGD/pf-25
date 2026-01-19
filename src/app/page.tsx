@@ -46,6 +46,7 @@ export default function Home() {
 
     let startY = 0
 
+    // Pointer events for mobile
     const handlePointerDown = (e: PointerEvent) => {
       startY = e.clientY;
       if (e.target instanceof Element) {
@@ -87,7 +88,7 @@ export default function Home() {
 
     }
 
-
+    // Wheel event for desktop
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
       
