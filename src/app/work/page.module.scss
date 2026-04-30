@@ -1,0 +1,23 @@
+.page {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.back {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  font-family: var(--font-rubik);
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  z-index: 100;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $white;
+  }
+}

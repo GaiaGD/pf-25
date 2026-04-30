@@ -1,0 +1,47 @@
+{
+  "works": [
+    {
+      "id": 1,
+      "title": "iFit",
+      "category": "Fitness & Wellness",
+      "year": "2023",
+      "description": "Interactive fitness platform with real-time workout tracking and live class streaming for millions of users worldwide.",
+      "image": "https://assets.awwwards.com/awards/submissions/2025/11/691225ce27c87045986316.jpg",
+      "url": "https://www.ifit.com"
+    },
+    {
+      "id": 2,
+      "title": "Capital One",
+      "category": "Fintech",
+      "year": "2022",
+      "description": "Redesigned core banking dashboard and onboarding flows, improving conversion rates and customer satisfaction across web and mobile.",
+      "image": "https://assets.awwwards.com/awards/submissions/2025/11/691225ce27c87045986316.jpg",
+      "url": "https://www.capitalone.com"
+    },
+    {
+      "id": 3,
+      "title": "Degreed",
+      "category": "EdTech",
+      "year": "2022",
+      "description": "Learning experience platform enabling enterprise teams to upskill at scale with personalised pathways and skill tracking.",
+      "image": "https://assets.awwwards.com/awards/submissions/2025/11/691225ce27c87045986316.jpg",
+      "url": "https://degreed.com"
+    },
+    {
+      "id": 4,
+      "title": "Trex",
+      "category": "E-Commerce",
+      "year": "2021",
+      "description": "Complete redesign of the product configurator and checkout experience for one of the most recognised outdoor decking brands.",
+      "image": "https://assets.awwwards.com/awards/submissions/2025/11/691225ce27c87045986316.jpg",
+      "url": "https://www.trex.com"
+    },
+    {
+      "id": 5,
+      "title": "Let's build something together.",
+      "description": "I'm currently open to new opportunities. If you have a project in mind, I'd love to hear about it.",
+      "url": "mailto:hi.gaiadg@gmail.com",
+      "urlLabel": "Get in touch"
+    }
+  ]
+}
