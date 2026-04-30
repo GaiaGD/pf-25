@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from "./Card.module.scss";
 import SwipeUpIcon from '@/app/assets/swipeup';
@@ -6,10 +7,10 @@ import MoreIcon from '@/app/assets/more'
 import ClientsIcon from "@/app/assets/clients";
 import ContactIcon from "@/app/assets/contact";
 
-export default function Card({ heading, subheading, motionProps, link, id }: CardProps) {
+const Card = forwardRef<HTMLDivElement, CardProps>(function Card({ index, heading, subheading, motionProps, link, id }, ref) {
 
   return (
-    <motion.div className={styles.card} {...motionProps}>
+    <motion.div ref={ref} className={styles.card} {...motionProps}>
       <div className={styles.container}>
         <div className={styles.headingContainer}>
           {link === 'skills' && <StacksIcon className={`${styles.icon} skills`} />}
@@ -31,4 +32,6 @@ export default function Card({ heading, subheading, motionProps, link, id }: Car
       }
     </motion.div>
   );
-}
+});
+
+export default Card;

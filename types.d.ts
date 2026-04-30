@@ -10,6 +10,7 @@ interface EmptyDeckProps {
 }
 
 interface CardProps extends CardLink {
+  ref?: React.Ref<HTMLDivElement>;
   index?: number;
   id: number;
   link: string;

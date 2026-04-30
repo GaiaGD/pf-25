@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import { AnimatePresence } from 'framer-motion';
 
 import styles from "./page.module.scss";
@@ -30,9 +30,22 @@ export default function Home() {
 
 
   // refs
+
+  // ref of the cards' data only
   const activeCardsRef = useRef(activeCards);
+  // refs of the actual cards elements in the DOM
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   const thrownCardsRef = useRef(thrownCards);
   const isScrollingRef = useRef(false);
+
+  
+  useEffect(() => {
+    // Clean up stale refs - remove nulls beyond current card count
+    cardRefs.current = cardRefs.current.slice(0, activeCards.length);
+    console.log("Active cards:", cardRefs.current);
+  },
+  [activeCards]);
 
   // Keep refs in sync with state
   useEffect(() => {
@@ -46,6 +59,7 @@ export default function Home() {
 
     let startY = 0
 
+    // Pointer events for mobile
     const handlePointerDown = (e: PointerEvent) => {
       startY = e.clientY;
       if (e.target instanceof Element) {
@@ -66,7 +80,6 @@ export default function Home() {
         const [topCard, ...rest] = activeCardsRef.current;
         setActiveCards(rest);
         setThrownCards([...thrownCardsRef.current, topCard]);
-        
         setTimeout(() => {
           isScrollingRef.current = false;
           setIsScrolling(false);
@@ -78,7 +91,6 @@ export default function Home() {
         const lastThrown = thrownCardsRef.current[thrownCardsRef.current.length - 1];
         setThrownCards(thrownCardsRef.current.slice(0, -1));
         setActiveCards([lastThrown, ...activeCardsRef.current]);
-        
         setTimeout(() => {
           isScrollingRef.current = false;
           setIsScrolling(false);
@@ -87,7 +99,7 @@ export default function Home() {
 
     }
 
-
+    // Wheel event for desktop
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
       
@@ -114,7 +126,6 @@ export default function Home() {
         const lastThrown = thrownCardsRef.current[thrownCardsRef.current.length - 1];
         setThrownCards(thrownCardsRef.current.slice(0, -1));
         setActiveCards([lastThrown, ...activeCardsRef.current]);
-        
         setTimeout(() => {
           isScrollingRef.current = false;
           setIsScrolling(false);
@@ -161,8 +172,9 @@ export default function Home() {
       setIsScrolling(false);
     }, 1500);
   }
-
   
+
+
   return (
     <div className={styles.page}>
       <main ref={containerRef} className={styles.main}>
@@ -172,6 +184,7 @@ export default function Home() {
         {
           activeCards.map((card, index) => (
             <Card
+              ref={(el) => { cardRefs.current[index] = el; }}
               key={card.id}
               index={index}
               link={card.link}
