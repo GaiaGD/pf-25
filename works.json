@@ -1,47 +1,111 @@
 {
   "works": [
     {
-      "id": 1,
+      "id": "fitbit-google",
+      "title": "Fitbit Enterprise",
+      "client": "Fitbit (Google)",
+      "year": "2024",
+      "role": "Sole Frontend Lead",
+      "summary": "B2B marketing site for Fitbit's enterprise health program. Two-phase migration from WordPress + Gutenberg to Next.js + Contentful, then to Root.js (Preact) for a server-first architecture. Handed off to Google pre-2025.",
+      "tech": ["Next.js", "Root.js", "Preact", "TypeScript", "SCSS", "Contentful"],
+      "highlights": [
+        "Sole frontend lead on two-phase migration: WordPress + Gutenberg → Next.js + Contentful, then → Root.js (Preact) for a 0kB JS server-first architecture",
+        "Headless CMS with Contentful — replaced Gutenberg blocks, gave Google's team full content ownership",
+        "Full multi-section site including blog migrated and delivered across both phases",
+        "100% Lighthouse target, WCAG AAA accessibility"
+      ],
+      "impact": "Full B2B marketing + blog site migrated in two architectural phases and handed off to Google",
+      "image": "/fitbit-hp.jpg",
+      "url": "https://fitbit.google/enterprise/",
+      "nda": false
+    },
+    {
+      "id": "ifit",
       "title": "iFit",
-      "category": "Fitness & Wellness",
-      "year": "2023",
-      "description": "Interactive fitness platform with real-time workout tracking and live class streaming for millions of users worldwide.",
-      "image": "https://assets.awwwards.com/awards/element/2025/11/6912280078fb3773832642.png",
-      "url": "https://www.ifit.com"
+      "client": "iFit",
+      "year": "2024–present",
+      "role": "Frontend Lead",
+      "summary": "Health & fitness streaming platform with over 6 million global members. Frontend lead on SSR marketing pages and blog infrastructure, built with Next.js and Contentstack, deployed on Vercel.",
+      "tech": ["Next.js", "React", "TypeScript", "CSS Modules", "Contentstack", "Vercel"],
+      "highlights": [
+        "Built blog section and full SSR infrastructure from scratch — hundreds of WordPress posts migrated and served as individual server-rendered pages",
+        "Headless CMS integration with Contentstack enabling marketing team content autonomy without engineering involvement",
+        "100% Lighthouse target across all pages, WCAG AAA accessibility",
+        "Google Analytics implementation for marketing and conversion tracking"
+      ],
+      "impact": "SSR infrastructure serving a platform with 6M+ global members",
+      "image": "/ifit-hp.jpg",
+      "url": "https://www.ifit.com",
+      "nda": false
     },
     {
-      "id": 2,
-      "title": "Capital One",
-      "category": "Fintech",
-      "year": "2022",
-      "description": "Redesigned core banking dashboard and onboarding flows, improving conversion rates and customer satisfaction across web and mobile.",
-      "image": "https://assets.awwwards.com/awards/submissions/2026/04/69e75dfd2abfb699815575.jpg",
-      "url": "https://www.capitalone.com"
+      "id": "rrhof",
+      "title": "Rock & Roll Hall of Fame",
+      "client": "Rock and Roll Hall of Fame",
+      "year": "2025",
+      "role": "Frontend Developer — Accessibility Lead",
+      "summary": "Consumer museum site on React, Next.js, and WordPress (headless). Led WCAG AAA and Section 508 compliance across all components — above the legally required AA standard.",
+      "tech": ["Next.js", "React", "TypeScript", "CSS Modules", "WordPress"],
+      "highlights": [
+        "Led end-to-end WCAG AAA and Section 508 remediation across all site components",
+        "Accessibility work extended to history.org as part of the same engagement",
+        "Part of a team that achieved perfect Lighthouse performance scores"
+      ],
+      "impact": "Full site WCAG AAA compliant across all components",
+      "image": "/rrhof-hp.jpg",
+      "url": "https://rockhall.com",
+      "nda": false
     },
     {
-      "id": 3,
+      "id": "degreed",
       "title": "Degreed",
-      "category": "EdTech",
-      "year": "2022",
-      "description": "Learning experience platform enabling enterprise teams to upskill at scale with personalised pathways and skill tracking.",
-      "image": "https://assets.awwwards.com/awards/submissions/2026/04/69e4556092271464528258.png",
-      "url": "https://degreed.com"
+      "client": "Degreed",
+      "year": "2024–2025",
+      "role": "Frontend Developer",
+      "summary": "B2B learning platform. Built frontend components in a PHP and TypeScript stack.",
+      "tech": ["PHP", "TypeScript"],
+      "highlights": [
+        "B2B SaaS platform with marketing and learning experience pages",
+        "Component development in a PHP + TypeScript environment"
+      ],
+      "impact": null,
+      "image": "/degreed-hp.jpg",
+      "url": "https://degreed.com/experience",
+      "nda": false
     },
     {
-      "id": 4,
-      "title": "Trex",
-      "category": "E-Commerce",
-      "year": "2021",
-      "description": "Complete redesign of the product configurator and checkout experience for one of the most recognised outdoor decking brands.",
-      "image": "https://assets.awwwards.com/awards/element/2025/11/6912280078fb3773832642.png",
-      "url": "https://www.trex.com"
-    },
-    {
-      "id": 5,
-      "title": "Let's build something together.",
-      "description": "I'm currently open to new opportunities. If you have a project in mind, I'd love to hear about it.",
-      "url": "mailto:hi.gaiadg@gmail.com",
-      "urlLabel": "Get in touch"
+      "id": "enterprise-nda",
+      "type": "nda",
+      "title": "Enterprise Work",
+      "subtitle": "Enterprise projects under NDA",
+      "projects": [
+        {
+          "client": "GEICO",
+          "role": "Frontend Developer — Design System",
+          "year": "2025–present",
+          "logo": "/geico.jpg",
+          "summary": "Rebuilding GEICO's dotcom from the ground up, starting from their internal brand and design system and building the new system itself.",
+          "tech": ["Lit", "Web Components", "Storybook", "TypeScript", "Angular"],
+          "highlights": [
+            "Built a new enterprise design system from GEICO's internal brand guidelines",
+            "Rebuilding geico.com using the new component library",
+            "Components documented and published via Storybook for team-wide consumption"
+          ]
+        },
+        {
+          "client": "Capital One",
+          "role": "Frontend Developer",
+          "year": "2025",
+          "logo": "/capitalone.png",
+          "summary": "Internal AML compliance tooling — data tables built with Lit web components and a React dashboard for anti-money laundering monitoring.",
+          "tech": ["Lit", "Web Components", "React", "TypeScript"],
+          "highlights": [
+            "Data table components built with Lit for high-density compliance data display",
+            "React dashboard for internal AML monitoring and reporting",
+            "Enterprise-grade component architecture for sensitive financial tooling"
+          ]
+        }
+      ]
     }
   ]
 }
