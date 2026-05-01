@@ -6,20 +6,39 @@ import type { Swiper as SwiperType } from 'swiper';
 import { useState, useRef } from 'react';
 import 'swiper/css';
 
+import Image from 'next/image';
 import styles from './WorkSlider.module.scss';
 
-interface Work {
-  id: number;
-  title: string;
-  description: string;
-  category?: string;
+interface NdaProject {
+  client: string;
+  role: string;
   year?: string;
+  logo?: string;
+  summary: string;
+  tech: string[];
+  highlights: string[];
+}
+
+interface WorkItem {
+  id: string;
+  type?: string;
+  title: string;
+  client?: string;
+  year?: string;
+  role?: string;
+  summary?: string;
+  tech?: string[];
+  highlights?: string[];
+  impact?: string | null;
   image?: string;
   url?: string;
   urlLabel?: string;
+  nda?: boolean;
+  subtitle?: string;
+  projects?: NdaProject[];
 }
 
-export default function WorkSlider({ works }: { works: Work[] }) {
+export default function WorkSlider({ works }: { works: WorkItem[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<SwiperType | null>(null);
 
@@ -41,26 +60,73 @@ export default function WorkSlider({ works }: { works: Work[] }) {
           <SwiperSlide key={work.id} className={`${styles.slide} ${!work.image ? styles.slideTextOnly : ''}`}>
             {work.image && (
               <div className={styles.imageWrapper}>
-                <img src={work.image} alt={work.title} className={styles.image} />
+                <Image
+                  src={work.image}
+                  alt={work.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 62vw"
+                  className={styles.image}
+                />
                 <div className={styles.overlay} />
-              </div>
-            )}
-            <div className={styles.content}>
-              <div className={styles.copy}>
-                {work.category && work.year && (
-                  <span className={styles.meta}>{work.category} — {work.year}</span>
-                )}
-                <h2 className={styles.title}>{work.title}</h2>
-                <p className={styles.description}>{work.description}</p>
-                {work.url && (
+                {work.url && !work.url.startsWith('mailto:') && (
                   <a
                     href={work.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.link}
+                    className={styles.overlayLink}
                   >
-                    {work.urlLabel ?? 'View project →'}
+                    <span className={styles.overlayCta}>Visit site ↗</span>
                   </a>
+                )}
+              </div>
+            )}
+            <div className={styles.content}>
+              <div className={styles.copy}>
+                {work.type === 'nda' ? (
+                  <>
+                    <span className={styles.meta}>Under NDA</span>
+                    <h2 className={styles.title}>{work.title}</h2>
+                    {work.subtitle && <p className={styles.description}>{work.subtitle}</p>}
+                    {work.projects && (
+                      <ul className={styles.ndaProjects}>
+                        {work.projects.map((project) => (
+                          <li key={project.client} className={styles.ndaProject}>
+                            {project.logo && (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img src={project.logo} alt={`${project.client} logo`} className={styles.ndaLogo} />
+                            )}
+                            <span className={styles.ndaClient}>{project.client}</span>
+                            <span className={styles.ndaRole}>{project.role}{project.year && ` — ${project.year}`}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    {work.role && work.year && (
+                      <span className={styles.meta}>{work.role} — {work.year}</span>
+                    )}
+                    <h2 className={styles.title}>{work.title}</h2>
+                    {work.summary && <p className={styles.description}>{work.summary}</p>}
+                    {work.tech && work.tech.length > 0 && (
+                      <ul className={styles.tech}>
+                        {work.tech.slice(0, 5).map((t) => (
+                          <li key={t} className={styles.techTag}>{t}</li>
+                        ))}
+                      </ul>
+                    )}
+                    {work.url && (
+                      <a
+                        href={work.url}
+                        target={work.url.startsWith('mailto:') ? '_self' : '_blank'}
+                        rel="noopener noreferrer"
+                        className={styles.link}
+                      >
+                        {work.urlLabel ?? 'View project →'}
+                      </a>
+                    )}
+                  </>
                 )}
               </div>
               <div className={styles.controls}>
