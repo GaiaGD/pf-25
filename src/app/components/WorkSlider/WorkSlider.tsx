@@ -130,12 +130,23 @@ export default function WorkSlider({ works }: { works: WorkItem[] }) {
                 )}
               </div>
               <div className={styles.controls}>
+                {activeIndex > 0 ? (
+                  <button
+                    className={styles.prevButton}
+                    onClick={() => swiperRef.current?.slidePrev()}
+                    aria-label="Previous slide"
+                  >
+                    ← Prev
+                  </button>
+                ) : (
+                  <span className={styles.controlPlaceholder} />
+                )}
                 <div className={styles.counter}>
                   <span>{String(activeIndex + 1).padStart(2, '0')}</span>
                   <span className={styles.counterDivider} />
                   <span className={styles.counterTotal}>{String(works.length).padStart(2, '0')}</span>
                 </div>
-                {!isLast && (
+                {!isLast ? (
                   <button
                     className={styles.nextButton}
                     onClick={() => swiperRef.current?.slideNext()}
@@ -143,6 +154,8 @@ export default function WorkSlider({ works }: { works: WorkItem[] }) {
                   >
                     Next →
                   </button>
+                ) : (
+                  <span className={styles.controlPlaceholder} />
                 )}
               </div>
             </div>

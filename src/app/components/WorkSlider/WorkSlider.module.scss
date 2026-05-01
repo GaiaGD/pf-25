@@ -328,6 +328,7 @@
   color: rgba(255, 255, 255, 0.4);
 }
 
+.prevButton,
 .nextButton {
   font-family: var(--font-rubik);
   font-size: 0.875rem;
@@ -338,9 +339,13 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 0.2rem;
   cursor: pointer;
-  transition: border-color 0.2s ease, opacity 0.2s ease;
+  transition: border-color 0.2s ease;
 
   &:hover {
     border-color: $white;
   }
+}
+
+.controlPlaceholder {
+  width: 4rem;
 }
