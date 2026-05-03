@@ -42,8 +42,20 @@ export default function WorkSlider({ works }: { works: WorkItem[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<SwiperType | null>(null);
   const wheelCooldown = useRef(false);
+  const touchStartY = useRef(0);
 
   const isLast = activeIndex === works.length - 1;
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY;
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    const deltaY = touchStartY.current - e.changedTouches[0].clientY;
+    if (Math.abs(deltaY) < 30) return;
+    if (deltaY > 0) swiperRef.current?.slideNext();
+    else swiperRef.current?.slidePrev();
+  }, []);
 
   const handleWheel = useCallback((e: React.WheelEvent) => {
     if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return; // vertical handled by Swiper
@@ -55,7 +67,7 @@ export default function WorkSlider({ works }: { works: WorkItem[] }) {
   }, []);
 
   return (
-    <div className={styles.sliderWrapper} onWheel={handleWheel}>
+    <div className={styles.sliderWrapper} onWheel={handleWheel} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       <Swiper
         modules={[Mousewheel, Keyboard, A11y]}
         direction="horizontal"
