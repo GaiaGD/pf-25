@@ -3,7 +3,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel, Keyboard, A11y } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import 'swiper/css';
 
 import Image from 'next/image';
@@ -41,11 +41,21 @@ interface WorkItem {
 export default function WorkSlider({ works }: { works: WorkItem[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<SwiperType | null>(null);
+  const wheelCooldown = useRef(false);
 
   const isLast = activeIndex === works.length - 1;
 
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return; // vertical handled by Swiper
+    if (wheelCooldown.current) return;
+    if (e.deltaX > 10) swiperRef.current?.slideNext();
+    else if (e.deltaX < -10) swiperRef.current?.slidePrev();
+    wheelCooldown.current = true;
+    setTimeout(() => { wheelCooldown.current = false; }, 800);
+  }, []);
+
   return (
-    <div className={styles.sliderWrapper}>
+    <div className={styles.sliderWrapper} onWheel={handleWheel}>
       <Swiper
         modules={[Mousewheel, Keyboard, A11y]}
         direction="horizontal"

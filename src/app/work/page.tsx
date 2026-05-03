@@ -6,7 +6,7 @@ import styles from './page.module.scss';
 export default function Work() {
   return (
     <div className={styles.page}>
-      <Link href="/" className={styles.back}>← Back</Link>
+      {/* <Link href="/" className={styles.back}>← Back</Link> */}
       <WorkSlider works={works} />
     </div>
   );

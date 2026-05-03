@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif, Rubik } from "next/font/google";
+import { Geist, Geist_Mono, IBM_Plex_Sans, Rubik } from "next/font/google";
 import "./styles/globals.scss"
 
 
@@ -13,11 +13,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex",
   subsets: ["latin"],
-  weight: "400", // Instrument Serif only has 400 weight
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500", "600"],
 });
 
 const rubik = Rubik({
@@ -60,7 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${rubik.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${ibmPlexSans.variable} ${rubik.variable}`}>
         {children}
       </body>
     </html>
