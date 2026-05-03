@@ -23,7 +23,7 @@
       "id": "ifit",
       "title": "iFit",
       "client": "iFit",
-      "year": "2024–present",
+      "year": "2025–2026",
       "role": "Frontend Lead",
       "summary": "Health & fitness streaming platform with over 6 million global members. Frontend lead on SSR marketing pages and blog infrastructure, built with Next.js and Contentstack, deployed on Vercel.",
       "tech": ["Next.js", "React", "TypeScript", "CSS Modules", "Contentstack", "Vercel"],
@@ -43,7 +43,7 @@
       "title": "Rock & Roll Hall of Fame",
       "client": "Rock and Roll Hall of Fame",
       "year": "2025",
-      "role": "Frontend Developer — Accessibility Lead",
+      "role": "Frontend Developer — Accessibility",
       "summary": "Consumer museum site on React, Next.js, and WordPress (headless). Led WCAG AAA and Section 508 compliance across all components — above the legally required AA standard.",
       "tech": ["Next.js", "React", "TypeScript", "CSS Modules", "WordPress"],
       "highlights": [
