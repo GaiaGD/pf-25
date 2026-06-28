@@ -1,234 +1,49 @@
-'use client';
-
-import { use, useEffect, useRef, useState } from "react";
-import { AnimatePresence } from 'framer-motion';
-
 import styles from "./page.module.scss";
-
-import { cards } from "../../cards.json";
-
-import Card from "./components/Card/Card";
-import Nav from "./components/Nav/Nav";
-import EmptyDeck from "./components/EmptyDeck/EmptyDeck";
+import Grainient from "./components/Grainient/Grainient";
 import Footer from "./components/Footer/Footer";
 
-import { useThreeLiquidMetal } from "@/app/utils/Canvas"
-
-
 export default function Home() {
-
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useThreeLiquidMetal(containerRef);
-
-
-  // states
-
-  const [activeCards, setActiveCards] = useState<CardProps[]>(cards);
-  const [thrownCards, setThrownCards] = useState<CardProps[]>([]);
-  const [isScrolling, setIsScrolling] = useState(false);
-
-
-  // refs
-
-  // ref of the cards' data only
-  const activeCardsRef = useRef(activeCards);
-  // refs of the actual cards elements in the DOM
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const thrownCardsRef = useRef(thrownCards);
-  const isScrollingRef = useRef(false);
-
-  
-  useEffect(() => {
-    // Clean up stale refs - remove nulls beyond current card count
-    cardRefs.current = cardRefs.current.slice(0, activeCards.length);
-    console.log("Active cards:", cardRefs.current);
-  },
-  [activeCards]);
-
-  // Keep refs in sync with state
-  useEffect(() => {
-    activeCardsRef.current = activeCards;
-    thrownCardsRef.current = thrownCards;
-  }, [activeCards, thrownCards]);
-
-
-// Handle scroll to throw/bring back cards
-  useEffect(() => {
-
-    let startY = 0
-
-    // Pointer events for mobile
-    const handlePointerDown = (e: PointerEvent) => {
-      startY = e.clientY;
-      if (e.target instanceof Element) {
-        e.target.setPointerCapture(e.pointerId);
-      }
-    }
-
-    const handlePointerUp = (e: PointerEvent) => {
-      const deltaY = startY - e.clientY;
-      const minDistance = 50; // Minimum distance to consider as a scroll
-
-      if (Math.abs(deltaY) < minDistance) return;
-
-      if (deltaY > 0 && activeCardsRef.current.length > 0) {
-        // Scrolling down - throw top card out
-        isScrollingRef.current = true;
-        setIsScrolling(true);
-        const [topCard, ...rest] = activeCardsRef.current;
-        setActiveCards(rest);
-        setThrownCards([...thrownCardsRef.current, topCard]);
-        setTimeout(() => {
-          isScrollingRef.current = false;
-          setIsScrolling(false);
-        }, 1500);
-      } else if (deltaY < 0 && thrownCardsRef.current.length > 0) {
-        // Scrolling up - bring back last thrown card
-        isScrollingRef.current = true;
-        setIsScrolling(true);
-        const lastThrown = thrownCardsRef.current[thrownCardsRef.current.length - 1];
-        setThrownCards(thrownCardsRef.current.slice(0, -1));
-        setActiveCards([lastThrown, ...activeCardsRef.current]);
-        setTimeout(() => {
-          isScrollingRef.current = false;
-          setIsScrolling(false);
-        }, 1500);
-      }
-
-    }
-
-    // Wheel event for desktop
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      
-      if (isScrollingRef.current) return;
-
-      if (e.deltaY > 0 && activeCardsRef.current.length > 0) {
-        // Scrolling down - throw top card out
-        isScrollingRef.current = true;
-        setIsScrolling(true);
-        const [topCard, ...rest] = activeCardsRef.current;
-        setActiveCards(rest);
-        setThrownCards([...thrownCardsRef.current, topCard]);
-        
-        setTimeout(() => {
-          isScrollingRef.current = false;
-          setIsScrolling(false);
-        }, 1500);
-
-
-      } else if (e.deltaY < 0 && thrownCardsRef.current.length > 0) {
-        // Scrolling up - bring back last thrown card
-        isScrollingRef.current = true;
-        setIsScrolling(true);
-        const lastThrown = thrownCardsRef.current[thrownCardsRef.current.length - 1];
-        setThrownCards(thrownCardsRef.current.slice(0, -1));
-        setActiveCards([lastThrown, ...activeCardsRef.current]);
-        setTimeout(() => {
-          isScrollingRef.current = false;
-          setIsScrolling(false);
-        }, 1500);
-      }
-    };
-
-    window.addEventListener('wheel', handleWheel, { passive: false });
-
-    containerRef.current?.addEventListener('pointerdown', handlePointerDown);
-    containerRef.current?.addEventListener('pointerup', handlePointerUp);
-
-    return () => {
-      window.removeEventListener('wheel', handleWheel)
-      containerRef.current?.removeEventListener('pointerdown', handlePointerDown);
-      containerRef.current?.removeEventListener('pointerup', handlePointerUp);
-    };
-  }, []);
-
-  const bringBackCard = (link: string) => {
-    
-    const cardToBringBack = thrownCardsRef.current.find(card => card.link === link);
-    if (!cardToBringBack) return;
-
-    isScrollingRef.current = true;
-    setIsScrolling(true);
-    setThrownCards(thrownCardsRef.current.filter(card => card.link !== link));
-    setActiveCards([cardToBringBack, ...activeCardsRef.current]);
-
-    setTimeout(() => {
-      isScrollingRef.current = false;
-      setIsScrolling(false);
-    }, 1500);
-  }
-
-  const bringBackAllCards = () => {
-    isScrollingRef.current = true;
-    setIsScrolling(true);
-    setActiveCards([...cards]);
-    setThrownCards([]);
-
-    setTimeout(() => {
-      isScrollingRef.current = false;
-      setIsScrolling(false);
-    }, 1500);
-  }
-  
-
-
   return (
     <div className={styles.page}>
-      <main ref={containerRef} className={styles.main}>
-        <Nav bringBackCard={bringBackCard} thrownCards={thrownCards.map(card => ({ heading: card.heading, link: card.link }))} allCards={cards.map(card => ({ heading: card.heading, link: card.link }))} />
+      <div className={styles.background}>
+        <Grainient />
+      </div>
 
-        <AnimatePresence>
-        {
-          activeCards.map((card, index) => (
-            <Card
-              ref={(el) => { cardRefs.current[index] = el; }}
-              key={card.id}
-              index={index}
-              link={card.link}
-              heading={card.heading}
-              subheading={card.subheading}
-              id={card.id}
-              motionProps={{
-                initial: { 
-                  y: "-150vh",
-                  x: `-50%`,
-                },
-                animate: {
-                  y: `-50%`,
-                  x: `-50%`,
-                  zIndex: activeCards.length - index,
-                  rotate: `${index*2}deg`,
-                  transition: {
-                    duration: 0.5,
-                    ease: "circInOut",
-                  }
-                },
-                exit: {
-                  y: "-150vh",
-                  x: `-50%`,
-                  transition: {
-                    duration: 0.5,
-                    ease: "circInOut",
-                  },
-                },
-                transition: {
-                  duration: 0.5,
-                  ease: "circInOut",
-                }
-              }}
-            />
-          ))
-        }
-        </AnimatePresence>
+      <main className={styles.main}>
+        <section className={styles.section} id="hello">
+          <h1>Oh, hey there!</h1>
+          <p>My name is Gaia Di Gregorio and I am a front-end developer.</p>
+          <p>I love creating bold and user-friendly products: solid, scalable and that will stick with you.</p>
+          <p>Keep going and see what this is all about!</p>
 
-        <EmptyDeck bringBackAllCards={bringBackAllCards} emptyDeck={activeCards.length === 0} />
+          <h2>What can I do</h2>
+          <p>I&apos;m good with languages. Personally and professionally.</p>
+          <p>And with libraries and frameworks too.</p>
+          <p>I specialize in React and TypeScript, with hands-on experience in Angular, and I&apos;m expanding my focus toward full-stack ownership and system design.</p>
+        </section>
 
-        <Footer />
+        <section className={styles.section} id="else">
+          <h2>What else can I say?</h2>
+          <p>Been exposed to diversity all my life, I give my best outside comfort zones.</p>
+          <p>When I&apos;m not online, I&apos;m practicing jiu jitsu, visiting new places, or ironically-ish singing karaoke.</p>
+        </section>
+
+        <section className={styles.section} id="contact">
+          <h2>Get in touch</h2>
+          <p>Easy:</p>
+          <p>
+            You can find me on{' '}
+            <a className="linkedin" href="https://www.linkedin.com/in/gaiadg/" target="_blank" rel="noopener noreferrer">LinkedIn</a>,{' '}
+            <a className="github" href="https://github.com/GaiaGD" target="_blank" rel="noopener noreferrer">GitHub</a>,
+          </p>
+          <p>
+            or send me an email at{' '}
+            <a className="email" href="mailto:hi.gaiadg@gmail.com">hi.gaiadg@gmail.com</a>
+          </p>
+        </section>
 
       </main>
+      <Footer />
     </div>
   );
 }
