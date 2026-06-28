@@ -6,15 +6,15 @@
       "client": "Fitbit (Google)",
       "year": "2024",
       "role": "Sole Frontend Lead",
-      "summary": "B2B marketing site for Fitbit's enterprise health program. Two-phase migration from WordPress + Gutenberg to Next.js + Contentful, then to Root.js (Preact) for a server-first architecture. Handed off to Google pre-2025.",
-      "tech": ["Next.js", "Root.js", "Preact", "TypeScript", "SCSS", "Contentful"],
+      "summary": "Server-first B2B marketing platform for Google's enterprise health division. Sole frontend lead across two architectural phases, ending in a 0kB JavaScript, Preact-powered experience handed off directly to Google.",
+      "tech": ["Next.js", "Preact", "TypeScript", "Contentful"],
       "highlights": [
-        "Sole frontend lead on two-phase migration: WordPress + Gutenberg → Next.js + Contentful, then → Root.js (Preact) for a 0kB JS server-first architecture",
-        "Headless CMS with Contentful — replaced Gutenberg blocks, gave Google's team full content ownership",
-        "Full multi-section site including blog migrated and delivered across both phases",
-        "100% Lighthouse target, WCAG AAA accessibility"
+        "Sole frontend lead on a two-phase architectural rebuild: WordPress + Gutenberg → Next.js + Contentful → Root.js (server-first Preact framework) for a fully server-rendered, 0kB JS architecture",
+        "Replaced Gutenberg blocks with a headless Contentful CMS, giving Google's team full content ownership without engineering involvement",
+        "Full site including blog migrated and delivered across both phases",
+        "100% Lighthouse score, WCAG AAA accessibility"
       ],
-      "impact": "Full B2B marketing + blog site migrated in two architectural phases and handed off to Google",
+      "impact": "Full B2B marketing + blog site delivered across two architectural phases and handed off to Google",
       "image": "/fitbit-hp.jpg",
       "url": "https://fitbit.google/enterprise/",
       "nda": false
@@ -25,12 +25,12 @@
       "client": "iFit",
       "year": "2025–2026",
       "role": "Frontend Lead",
-      "summary": "Health & fitness streaming platform with over 6 million global members. Frontend lead on SSR marketing pages and blog infrastructure, built with Next.js and Contentstack, deployed on Vercel.",
-      "tech": ["Next.js", "React", "TypeScript", "CSS Modules", "Contentstack", "Vercel"],
+      "summary": "SSR marketing infrastructure for a global fitness platform with 6M+ members. Frontend lead on a full server-rendered site and blog built with Next.js and Contentstack.",
+      "tech": ["Next.js", "React", "TypeScript", "Contentstack"],
       "highlights": [
-        "Built blog section and full SSR infrastructure from scratch — hundreds of WordPress posts migrated and served as individual server-rendered pages",
-        "Headless CMS integration with Contentstack enabling marketing team content autonomy without engineering involvement",
-        "100% Lighthouse target across all pages, WCAG AAA accessibility",
+        "Built the full SSR infrastructure and blog section from scratch — hundreds of posts migrated and served as individual server-rendered pages",
+        "Headless CMS integration with Contentstack giving the marketing team full content autonomy without engineering involvement",
+        "100% Lighthouse score, WCAG AAA accessibility across all pages",
         "Google Analytics implementation for marketing and conversion tracking"
       ],
       "impact": "SSR infrastructure serving a platform with 6M+ global members",
@@ -44,33 +44,16 @@
       "client": "Rock and Roll Hall of Fame",
       "year": "2025",
       "role": "Frontend Developer — Accessibility",
-      "summary": "Consumer museum site on React, Next.js, and WordPress (headless). Led WCAG AAA and Section 508 compliance across all components — above the legally required AA standard.",
-      "tech": ["Next.js", "React", "TypeScript", "CSS Modules", "WordPress"],
+      "summary": "Consumer museum site on Next.js and headless WordPress. Led accessibility implementation to WCAG AAA and Section 508 — a standard above the legal requirement, chosen as a deliberate craft decision.",
+      "tech": ["Next.js", "React", "TypeScript", "Headless WordPress"],
       "highlights": [
-        "Led end-to-end WCAG AAA and Section 508 remediation across all site components",
+        "Led end-to-end WCAG AAA and Section 508 remediation across all site components — above the legally required AA standard",
         "Accessibility work extended to history.org as part of the same engagement",
         "Part of a team that achieved perfect Lighthouse performance scores"
       ],
       "impact": "Full site WCAG AAA compliant across all components",
       "image": "/rrhof-hp.jpg",
       "url": "https://rockhall.com",
-      "nda": false
-    },
-    {
-      "id": "degreed",
-      "title": "Degreed",
-      "client": "Degreed",
-      "year": "2024–2025",
-      "role": "Frontend Developer",
-      "summary": "B2B learning platform. Built frontend components in a PHP and TypeScript stack.",
-      "tech": ["PHP", "TypeScript"],
-      "highlights": [
-        "B2B SaaS platform with marketing and learning experience pages",
-        "Component development in a PHP + TypeScript environment"
-      ],
-      "impact": null,
-      "image": "/degreed-hp.jpg",
-      "url": "https://degreed.com/experience",
       "nda": false
     },
     {
@@ -83,12 +66,12 @@
           "client": "GEICO",
           "role": "Frontend Developer — Design System",
           "year": "2025–present",
-          "logo": "/geico.jpg",
-          "summary": "Rebuilding GEICO's dotcom from the ground up, starting from their internal brand and design system and building the new system itself.",
+          "logo": "/geico.png",
+          "summary": "Rebuilding GEICO's dotcom from scratch, starting from their internal brand guidelines and building the design system itself — the component library that powers the new site.",
           "tech": ["Lit", "Web Components", "Storybook", "TypeScript", "Angular"],
           "highlights": [
-            "Built a new enterprise design system from GEICO's internal brand guidelines",
-            "Rebuilding geico.com using the new component library",
+            "Built a new enterprise design system from GEICO's internal brand guidelines up",
+            "Rebuilding geico.com using the component library, closing the loop between system and product",
             "Components documented and published via Storybook for team-wide consumption"
           ]
         },
@@ -97,10 +80,10 @@
           "role": "Frontend Developer",
           "year": "2025",
           "logo": "/capitalone.png",
-          "summary": "Internal AML compliance tooling — data tables built with Lit web components and a React dashboard for anti-money laundering monitoring.",
+          "summary": "High-density data UI for enterprise financial monitoring. Built Lit web components and a React dashboard for internal AML compliance tooling at one of the largest US banks.",
           "tech": ["Lit", "Web Components", "React", "TypeScript"],
           "highlights": [
-            "Data table components built with Lit for high-density compliance data display",
+            "Designed and built data table components in Lit for high-density compliance data display",
             "React dashboard for internal AML monitoring and reporting",
             "Enterprise-grade component architecture for sensitive financial tooling"
           ]

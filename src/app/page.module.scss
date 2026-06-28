@@ -11,14 +11,6 @@
   transform: translateZ(0);
 }
 
-.main {
-  position: relative;
-  z-index: 1;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 2rem 6rem;
-}
-
 .section {
   padding: 8rem 0;
   display: flex;
@@ -26,39 +18,84 @@
   gap: 1.25rem;
 
   h1, h2 {
-    font-family: var(--font-rubik);
+    font-family: var(--font-ibm-plex);
     font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1.1;
   }
 
-  h1 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-  }
-
-  h2 {
-    font-size: clamp(1.75rem, 4vw, 3rem);
-  }
+  h1 { font-size: $fs-4xl; }
+  h2 { font-size: $fs-2xl; }
 
   p {
     font-family: var(--font-ibm-plex);
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: $fs-md;
     line-height: 1.7;
     opacity: 0.85;
   }
+}
 
-  & + & {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.hero {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+
+  :global(body.at-hero) & {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
+.firstContent,
+.lastContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 8rem max(2rem, calc((100vw - 1240px) / 2));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+
+  h1, h2 {
+    font-family: var(--font-ibm-plex);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  h1 { font-size: $fs-4xl; }
+  h2 { font-size: $fs-2xl; }
+
+  p {
+    font-family: var(--font-ibm-plex);
+    font-size: $fs-md;
+    line-height: 1.7;
+    opacity: 0.85;
+  }
+}
+
+:global(body.at-first) .firstContent {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+:global(body.at-last) .lastContent {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 @media (max-width: 600px) {
-  .main {
-    padding: 0 1.25rem 5rem;
-  }
-
   .section {
     padding: 5rem 0;
+
+    & + & {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
   }
+
 }

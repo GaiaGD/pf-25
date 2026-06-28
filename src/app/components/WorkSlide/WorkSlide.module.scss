@@ -1,0 +1,231 @@
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+
+  @include bpMedium {
+    flex-direction: row;
+  }
+}
+
+// ── No-image variant ───────────────────────────────────────────────────────
+
+.noImage .content {
+  width: 100%;
+  max-width: 720px;
+  justify-content: center;
+}
+
+.logoWrapper {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.logo {
+  object-fit: contain;
+  object-position: left center;
+}
+
+// ── Image ──────────────────────────────────────────────────────────────────
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  height: 50%;
+  @include bpMedium {
+    height: auto;
+    margin: 2rem;;
+    inset: auto;
+    flex: 1;
+    order: 2;
+  }
+}
+
+@keyframes imageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.image {
+  object-fit: cover;
+  object-position: center 0%;
+  transition: object-position 20s ease-in-out;
+  animation: imageFadeIn 0.8s ease-in-out forwards;
+}
+
+.imageWrapper:hover .image {
+  object-position: center 100%;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  @include bpMedium {
+    transition: background 0.4s ease;
+  }
+}
+
+.imageWrapper:hover .overlay {
+  @include bpMedium {
+    background: rgba(255, 255, 255, 0.372);
+  }
+}
+
+.overlayLink {
+  display: none;
+
+  @include bpMedium {
+    display: flex;
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+}
+
+.overlayCta {
+  font-family: var(--font-rubik);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $textColor;
+  border-bottom: 1px solid rgba($textColor, 0.5);
+  padding-bottom: 0.2rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+  .imageWrapper:hover & {
+    opacity: 1;
+  }
+}
+
+// ── Content panel ──────────────────────────────────────────────────────────
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem 1.5rem;
+  height: 50%;
+
+  @include bpMedium {
+    height: auto;
+    order: 1;
+    width: 38%;
+    flex-shrink: 0;
+    justify-content: center;
+    padding: 4rem 3rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  @include bpLarge {
+    padding: 4rem 4rem;
+  }
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.meta {
+  font-family: var(--font-rubik);
+  font-size: $fs-sm;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba($textColor, 0.65);
+}
+
+.title {
+  font-family: var(--font-ibm-plex);
+  font-size: $fs-4xl;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: $textColor;
+}
+
+.description {
+  font-family: var(--font-rubik);
+  font-size: $fs-base;
+  font-weight: 100;
+  line-height: 1.4;
+  color: rgba($textColor, 0.5);
+}
+
+.highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.highlight {
+  font-family: var(--font-rubik);
+  font-size: $fs-md;
+  font-weight: 300;
+  line-height: 1.5;
+  color: $textColor;
+  padding-left: 0.9rem;
+  position: relative;
+  max-width: 36ch;
+
+  &::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: rgba($textColor, 0.3);
+  }
+}
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.techTag {
+  font-family: var(--font-rubik);
+  font-size: $fs-xs;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: rgba($textColor, 0.45);
+  border: 1px solid rgba($textColor, 0.15);
+  border-radius: 2px;
+  padding: 0.2rem 0.5rem;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-family: var(--font-rubik);
+  font-size: $fs-base;
+  font-weight: 400;
+  color: $textColor;
+  text-decoration: none;
+  border-bottom: 1px solid rgba($textColor, 0.3);
+  padding-bottom: 0.2rem;
+  width: fit-content;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: $textColor;
+  }
+}

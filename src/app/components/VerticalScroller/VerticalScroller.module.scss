@@ -1,0 +1,25 @@
+.embla {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.slide {
+  flex: 0 0 100vh;
+  min-height: 0;
+  overflow-y: auto;
+  position: relative;
+}
+
+.slideInner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}

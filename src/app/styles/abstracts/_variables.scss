@@ -32,13 +32,26 @@ $breakpoint-height-lg: 900px;
 
 // Typography
 $font-family-base: 'Arial, Helvetica, sans-serif';
-$font-sizes: (
-  xs: 0.75rem,
-  sm: 0.875rem,
-  base: 1rem,
-  lg: 1.125rem,
-  xl: 1.25rem,
-  '2xl': 1.5rem,
-  '3xl': 1.875rem
-);
 
+// Fluid type scale — fluid($min, $max) takes unitless rem values
+// Scales linearly from 320px (20rem) to 1440px (90rem)
+@function fluid($min, $max, $from: 20, $to: 90) {
+  $slope: ($max - $min) / ($to - $from);
+  $intercept: $min - $slope * $from;
+  @return clamp(#{$min}rem, calc(#{$slope * 100}vw + #{$intercept}rem), #{$max}rem);
+}
+
+//              mobile → desktop
+$fs-xs:      fluid(0.65, 0.75);  // tags, labels
+$fs-sm:      fluid(0.75, 0.875); // meta, secondary
+$fs-base:    fluid(0.875, 1);    // body
+$fs-md:      fluid(1, 1.2);      // lead / larger body
+$fs-lg:      fluid(1.125, 1.5);  // subheadings
+$fs-xl:      fluid(1.5, 2);      // h3
+$fs-2xl:     fluid(1.75, 3);     // h2
+$fs-3xl:     fluid(2.25, 4);     // large h2
+$fs-4xl:     fluid(2.5, 5);      // h1 / slide title
+$fs-display: fluid(3, 7);        // hero display
+
+// set it black for now, but we can change it later with theme
+$textColor: #000000;

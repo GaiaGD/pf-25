@@ -157,10 +157,10 @@
 
   @include bpMedium {
     order: 1;
+    
     width: 38%;
     flex-shrink: 0;
     padding: 4rem 3rem;
-    background-color: $black;
     border-right: 1px solid rgba(255, 255, 255, 0.08);
   }
 
