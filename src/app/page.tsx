@@ -6,6 +6,7 @@ import WorkSlide from "./components/WorkSlide/WorkSlide";
 import DecryptedText from "./components/DecryptedText/DecryptedText";
 import ShinyText from "./components/ShinyText/ShinyText";
 import worksData from "../../works.json";
+import SwipeUpIcon from '@/app/assets/swipeup';
 
 type NdaProject = { client: string; role: string; year: string; logo: string; summary: string; tech: string[]; highlights: string[] }
 
@@ -36,6 +37,7 @@ export default function Home() {
             Front-end engineer specializing in design systems, component architecture,
             and the details that make UI feel intentional.
           </p>
+           <SwipeUpIcon className={styles.rotatingIcon} />
         </div>
 
         <div className={styles.lastContent}>

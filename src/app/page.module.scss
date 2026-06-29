@@ -70,6 +70,38 @@
   }
 }
 
+@keyframes smoothRotate {
+  0% {
+    transform: rotate(-10deg);
+  }
+  5% {
+    transform: rotate(20deg);
+  }
+  35% {
+    transform: rotate(-10deg);
+  }
+  35.01% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+.swipeUp {
+  margin-top: 1rem;
+  fill: $black;
+  path {
+    fill: $black;
+  }
+  .rotatingIcon {
+    display: inline-block;
+    animation: smoothRotate 1.5s ease-in-out infinite;
+    height: 4rem;
+    width: 4rem;
+  }
+}
+
+
 :global(body.at-first) .firstContent {
   opacity: 1;
   pointer-events: auto;
