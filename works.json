@@ -5,7 +5,7 @@
       "title": "Fitbit Enterprise",
       "client": "Fitbit (Google)",
       "year": "2024",
-      "role": "Sole Frontend Lead",
+      "role": "Frontend Lead",
       "summary": "Server-first B2B marketing platform for Google's enterprise health division. Sole frontend lead across two architectural phases, ending in a 0kB JavaScript, Preact-powered experience handed off directly to Google.",
       "tech": ["Next.js", "Preact", "TypeScript", "Contentful"],
       "highlights": [
@@ -63,9 +63,9 @@
       "subtitle": "Enterprise projects under NDA",
       "projects": [
         {
-          "client": "GEICO",
+          "client": "GEICO (nda)",
           "role": "Frontend Developer — Design System",
-          "year": "2025–present",
+          "year": "2026–present",
           "logo": "/geico.png",
           "summary": "Rebuilding GEICO's dotcom from scratch, starting from their internal brand guidelines and building the design system itself — the component library that powers the new site.",
           "tech": ["Lit", "Web Components", "Storybook", "TypeScript", "Angular"],
@@ -76,7 +76,7 @@
           ]
         },
         {
-          "client": "Capital One",
+          "client": "Capital One (nda)",
           "role": "Frontend Developer",
           "year": "2025",
           "logo": "/capitalone.png",

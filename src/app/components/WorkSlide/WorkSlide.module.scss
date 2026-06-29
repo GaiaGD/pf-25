@@ -74,7 +74,7 @@
 
 .imageWrapper:hover .overlay {
   @include bpMedium {
-    background: rgba(255, 255, 255, 0.372);
+    background: rgba(255, 255, 255, 0.5);
   }
 }
 
@@ -98,11 +98,10 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: $textColor;
-  border-bottom: 1px solid rgba($textColor, 0.5);
-  padding-bottom: 0.2rem;
   opacity: 0;
   transition: opacity 0.4s ease;
-
+  text-shadow: 0 0 2rem rgba(255, 255, 255, 0.568);
+  // padding: 1.5rem 2rem 0.2rem;
   .imageWrapper:hover & {
     opacity: 1;
   }
@@ -123,12 +122,12 @@
     width: 38%;
     flex-shrink: 0;
     justify-content: center;
-    padding: 4rem 3rem;
+    padding: 2rem;
     border-right: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   @include bpLarge {
-    padding: 4rem 4rem;
+    padding: 4rem;
   }
 }
 

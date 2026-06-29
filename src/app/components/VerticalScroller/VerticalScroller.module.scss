@@ -3,6 +3,10 @@
   overflow: hidden;
   position: relative;
   z-index: 2;
+
+  :global(body.at-last) & {
+    pointer-events: none;
+  }
 }
 
 .container {

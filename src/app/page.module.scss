@@ -46,10 +46,16 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  padding: 8rem max(2rem, calc((100vw - 1240px) / 2));
+  padding: 1rem;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
+  @include bpMedium {
+    padding: 2rem;
+  }
+  @include bpLarge {
+    padding: 4rem;
+  }
 
   h1, h2 {
     font-family: var(--font-ibm-plex);
@@ -67,6 +73,46 @@
     font-size: $fs-md;
     line-height: 1.7;
     opacity: 0.85;
+  }
+  .subheading {
+    margin-left: 3rem;
+  }
+}
+
+.firstContent {
+  justify-content: space-between;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  @include bpMedium {
+    max-width: 108ch;
+  }
+  @include bpLarge {
+    max-width: 140ch;
+  }
+}
+
+.link {
+  color: $textColor;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  svg {
+    width: 2rem;
+    height: 2rem;
+    fill: $textColor;
+    transition: fill 0.3s ease;
+    &:hover {
+      fill: $primary;
+    }
   }
 }
 
@@ -89,7 +135,13 @@
 }
 .swipeUp {
   margin-top: 1rem;
+  width: 100%;
   fill: $black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   path {
     fill: $black;
   }
@@ -98,6 +150,16 @@
     animation: smoothRotate 1.5s ease-in-out infinite;
     height: 4rem;
     width: 4rem;
+  }
+  span {
+    font-family: var(--font-rubik);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $textColor;
+    border-bottom: 1px solid rgba($textColor, 0.5);
+    padding-bottom: 0.2rem;
   }
 }
 

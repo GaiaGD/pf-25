@@ -7,6 +7,8 @@ import DecryptedText from "./components/DecryptedText/DecryptedText";
 import ShinyText from "./components/ShinyText/ShinyText";
 import worksData from "../../works.json";
 import SwipeUpIcon from '@/app/assets/swipeup';
+import LinkedInIcon from '@/app/assets/LinkedInIcon';
+import GitHubIcon from '@/app/assets/GithubIcon';
 
 type NdaProject = { client: string; role: string; year: string; logo: string; summary: string; tech: string[]; highlights: string[] }
 
@@ -25,28 +27,45 @@ export default function Home() {
 
       <section className={styles.notWork}>
         <div className={styles.firstContent}>
-          <div>
-            <h1 id="built-like-a-developer">
-              <DecryptedText text="Built like a developer," animateOn="view" sequential speed={40} revealDirection="start" delay={1000} />
-            </h1>
-            <h1 id="felt-like-a-designer">
-              <ShinyText text="Felt like a designer." color="#000000" shineColor="#8d6ce3" speed={3} spread={90} />
-            </h1>
+          <div className={styles.intro}>
+            <div className={styles.heading}>
+              <h1 id="built-like-a-developer">
+                <DecryptedText text="Built like a developer," animateOn="view" sequential speed={40} revealDirection="start" delay={1000} />
+              </h1>
+              <h1 id="felt-like-a-designer">
+                <ShinyText text="Felt like a designer." color="#000000" shineColor="#8d6ce3" speed={3} spread={90} />
+              </h1>
+            </div>
+            <div className={styles.subheading}>
+              <p>
+                My name is Gaia,
+              </p>
+              <p>
+                I am a Front-end engineer specializing in design systems, component architecture,
+                and the details that make UI feel intentional.
+              </p>
+            </div>
           </div>
-          <p>
-            Front-end engineer specializing in design systems, component architecture,
-            and the details that make UI feel intentional.
-          </p>
-           <SwipeUpIcon className={styles.rotatingIcon} />
+          <div className={styles.swipeUp}>
+            <SwipeUpIcon className={styles.rotatingIcon} />
+            {/* <span>SCROLL DOWN</span> */}
+          </div>
         </div>
 
         <div className={styles.lastContent}>
-          <h2>What else can I say?</h2>
-          <p>Been exposed to diversity all my life, I give my best outside comfort zones.</p>
-          <p>When I&apos;m not online, I&apos;m practicing jiu jitsu, visiting new places, or ironically-ish singing karaoke.</p>
-
-          <h2>Get in touch</h2>
-          <p>Easy:</p>
+          <div className={styles.heading}>
+            <h2>What else?</h2>
+            <div className={styles.subheading}>
+              <p>Been exposed to diversity all my life, I give my best outside comfort zones.</p>
+              <p>When I&apos;m not online, I&apos;m practicing jiu jitsu, visiting new places, or ironically-ish singing karaoke.</p>
+              <p>I'm currently based in the US, working at <a className={styles.link} href="https://thisisgrow.com/" target="_blank" rel="noopener noreferrer">Grow</a>.</p>
+            </div>
+          </div>
+          <h2>Where to find me?</h2>
+          <div className={styles.socials}>
+            <LinkedInIcon className={styles.icon} />
+            <GitHubIcon className={styles.icon} />
+          </div>
           <p>
             You can find me on{' '}
             <a className="linkedin" href="https://www.linkedin.com/in/gaiadg/" target="_blank" rel="noopener noreferrer">LinkedIn</a>,{' '}

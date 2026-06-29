@@ -6,7 +6,7 @@
   font-size: 0.8rem;
   padding: 1rem 0;
   font-family: var(--font-rubik);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba($textColor, 0.5);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
