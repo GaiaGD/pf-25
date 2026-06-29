@@ -3,6 +3,8 @@ import Grainient from "./components/Grainient/Grainient";
 import Footer from "./components/Footer/Footer";
 import VerticalScroller from "./components/VerticalScroller/VerticalScroller";
 import WorkSlide from "./components/WorkSlide/WorkSlide";
+import DecryptedText from "./components/DecryptedText/DecryptedText";
+import ShinyText from "./components/ShinyText/ShinyText";
 import worksData from "../../works.json";
 
 type NdaProject = { client: string; role: string; year: string; logo: string; summary: string; tech: string[]; highlights: string[] }
@@ -20,17 +22,20 @@ export default function Home() {
         <Grainient />
       </div>
 
-      <section className={styles.hero} id="hello">
+      <section className={styles.notWork}>
         <div className={styles.firstContent}>
-          <h1>Oh, hey there!</h1>
-          <p>My name is Gaia Di Gregorio and I am a front-end developer.</p>
-          <p>I love creating bold and user-friendly products: solid, scalable and that will stick with you.</p>
-          <p>Keep going and see what this is all about!</p>
-
-          <h2>What can I do</h2>
-          <p>I&apos;m good with languages. Personally and professionally.</p>
-          <p>And with libraries and frameworks too.</p>
-          <p>I specialize in React and TypeScript, with hands-on experience in Angular, and I&apos;m expanding my focus toward full-stack ownership and system design.</p>
+          <div>
+            <h1 id="built-like-a-developer">
+              <DecryptedText text="Built like a developer," animateOn="view" sequential speed={40} revealDirection="start" delay={1000} />
+            </h1>
+            <h1 id="felt-like-a-designer">
+              <ShinyText text="Felt like a designer." color="#000000" shineColor="#8d6ce3" speed={3} spread={90} />
+            </h1>
+          </div>
+          <p>
+            Front-end engineer specializing in design systems, component architecture,
+            and the details that make UI feel intentional.
+          </p>
         </div>
 
         <div className={styles.lastContent}>

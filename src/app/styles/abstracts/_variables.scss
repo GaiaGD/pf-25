@@ -43,14 +43,14 @@ $font-family-base: 'Arial, Helvetica, sans-serif';
 
 //              mobile → desktop
 $fs-xs:      fluid(0.65, 0.75);  // tags, labels
-$fs-sm:      fluid(0.75, 0.875); // meta, secondary
+$fs-sm:      fluid(0.8, 0.875); // meta, secondary
 $fs-base:    fluid(0.875, 1);    // body
 $fs-md:      fluid(1, 1.2);      // lead / larger body
 $fs-lg:      fluid(1.125, 1.5);  // subheadings
 $fs-xl:      fluid(1.5, 2);      // h3
 $fs-2xl:     fluid(1.75, 3);     // h2
 $fs-3xl:     fluid(2.25, 4);     // large h2
-$fs-4xl:     fluid(2.5, 5);      // h1 / slide title
+$fs-4xl:     fluid(2, 5);      // h1 / slide title
 $fs-display: fluid(3, 7);        // hero display
 
 // set it black for now, but we can change it later with theme

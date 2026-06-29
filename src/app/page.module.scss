@@ -17,16 +17,6 @@
   flex-direction: column;
   gap: 1.25rem;
 
-  h1, h2 {
-    font-family: var(--font-ibm-plex);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-  }
-
-  h1 { font-size: $fs-4xl; }
-  h2 { font-size: $fs-2xl; }
-
   p {
     font-family: var(--font-ibm-plex);
     font-size: $fs-md;
@@ -35,7 +25,7 @@
   }
 }
 
-.hero {
+.notWork {
   position: fixed;
   inset: 0;
   z-index: 1;
@@ -65,11 +55,12 @@
     font-family: var(--font-ibm-plex);
     font-weight: 700;
     letter-spacing: -0.03em;
-    line-height: 1.1;
   }
 
   h1 { font-size: $fs-4xl; }
   h2 { font-size: $fs-2xl; }
+
+  #felt-like-a-designer { font-style: italic; }
 
   p {
     font-family: var(--font-ibm-plex);
