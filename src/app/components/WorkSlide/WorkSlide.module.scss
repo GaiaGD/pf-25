@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
 
-  @include bpMedium {
+  @include bpLarge {
     flex-direction: row;
   }
 }
@@ -36,11 +36,14 @@
   position: relative;
   overflow: hidden;
   border-radius: 1.5rem;
-  height: 30%;
+  height: 25%;
   margin: 1rem;
   @include bpMedium {
+    height: 30%;
+  }
+  @include bpLarge { 
     height: auto;
-    margin: 2rem;
+    margin: 2rem 2rem 3rem 2rem;
     inset: auto;
     flex: 1;
     order: 2;
@@ -67,13 +70,13 @@
   position: absolute;
   inset: 0;
 
-  @include bpMedium {
+  @include bpLarge {
     transition: background 0.4s ease;
   }
 }
 
 .imageWrapper:hover .overlay {
-  @include bpMedium {
+  @include bpLarge {
     background: rgba(255, 255, 255, 0.5);
   }
 }
@@ -81,7 +84,7 @@
 .overlayLink {
   display: none;
 
-  @include bpMedium {
+  @include bpLarge {
     display: flex;
     position: absolute;
     inset: 0;
@@ -116,7 +119,7 @@
   flex-direction: column;
   padding: 1rem;
   height: 70%;
-  @include bpMedium {
+  @include bpLarge {
     height: auto;
     order: 1;
     width: 38%;
@@ -157,7 +160,7 @@
 
 .description {
   display: none;
-  @include bpMedium {
+  @include bpLarge {
     display: block;
     font-family: var(--font-rubik);
     font-size: $fs-sm;
@@ -185,7 +188,7 @@
   color: $textColor;
   padding-left: 0.9rem;
   position: relative;
-  @include bpMedium {
+  @include bpLarge {
     max-width: 36ch;
   }
 

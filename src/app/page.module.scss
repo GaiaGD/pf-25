@@ -86,13 +86,19 @@
 .intro {
   display: flex;
   flex-direction: column;
+  height: 100%;
   gap: 1.25rem;
+  justify-content: center;
   @include bpMedium {
     max-width: 108ch;
   }
   @include bpLarge {
     max-width: 140ch;
   }
+}
+
+.lastContent {
+  justify-content: center;
 }
 
 .link {
@@ -103,16 +109,28 @@
 
 .socials {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  align-items: center;
-  svg {
-    width: 2rem;
-    height: 2rem;
-    fill: $textColor;
-    transition: fill 0.3s ease;
-    &:hover {
-      fill: $primary;
+  justify-content: center;
+  margin-left: 3rem;
+  .iconContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    svg {
+      width: 2rem;
+      height: 2rem;
+      fill: $textColor;
+      transition: fill 0.3s ease;
+      &:hover {
+        fill: $primary;
+      }
     }
+  }
+  
+  .email {
+    font-family: var(--font-ibm-plex);
+    font-size: $fs-md;
   }
 }
 

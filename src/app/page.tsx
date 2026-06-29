@@ -2,6 +2,7 @@ import styles from "./page.module.scss";
 import Grainient from "./components/Grainient/Grainient";
 import Footer from "./components/Footer/Footer";
 import VerticalScroller from "./components/VerticalScroller/VerticalScroller";
+import { EmblaProvider } from "./context/EmblaContext";
 import WorkSlide from "./components/WorkSlide/WorkSlide";
 import DecryptedText from "./components/DecryptedText/DecryptedText";
 import ShinyText from "./components/ShinyText/ShinyText";
@@ -53,70 +54,68 @@ export default function Home() {
         </div>
 
         <div className={styles.lastContent}>
-          <div className={styles.heading}>
             <h2>What else?</h2>
             <div className={styles.subheading}>
               <p>Been exposed to diversity all my life, I give my best outside comfort zones.</p>
-              <p>When I&apos;m not online, I&apos;m practicing jiu jitsu, visiting new places, or ironically-ish singing karaoke.</p>
               <p>I'm currently based in the US, working at <a className={styles.link} href="https://thisisgrow.com/" target="_blank" rel="noopener noreferrer">Grow</a>.</p>
+              <p>When I&apos;m not online, I&apos;m practicing jiu jitsu, visiting new places, or ironically-ish singing karaoke.</p>
             </div>
-          </div>
           <h2>Where to find me?</h2>
           <div className={styles.socials}>
-            <LinkedInIcon className={styles.icon} />
-            <GitHubIcon className={styles.icon} />
+            <div className={styles.iconContainer}>
+              <a href="https://www.linkedin.com/in/gaiadg/" target="_blank" rel="noopener noreferrer">
+                <LinkedInIcon className={styles.icon} />
+              </a>
+              <a href="https://github.com/GaiaGD" target="_blank" rel="noopener noreferrer">
+                <GitHubIcon className={styles.icon} />
+              </a>
+            </div>
+            <span className={styles.email}>hi.gaiadg@gmail.com</span>
           </div>
-          <p>
-            You can find me on{' '}
-            <a className="linkedin" href="https://www.linkedin.com/in/gaiadg/" target="_blank" rel="noopener noreferrer">LinkedIn</a>,{' '}
-            <a className="github" href="https://github.com/GaiaGD" target="_blank" rel="noopener noreferrer">GitHub</a>,
-          </p>
-          <p>
-            or send me an email at{' '}
-            <a className="email" href="mailto:hi.gaiadg@gmail.com">hi.gaiadg@gmail.com</a>
-          </p>
         </div>
       </section>
 
-      <VerticalScroller>
+      <EmblaProvider>
+        <VerticalScroller>
 
-        {/* <div /> transparent spacer — hero shows through at slide 0 */}
-        <div />
-        
-        {imageWorks.map((work) => (
-          <WorkSlide
-            key={work.id}
-            title={work.title}
-            role={work.role}
-            year={work.year}
-            summary={work.summary}
-            highlights={work.highlights}
-            tech={work.tech}
-            image={work.image!}
-            url={work.url}
-            urlLabel={'urlLabel' in work ? String(work.urlLabel) : undefined}
-          />
-        ))}
+          {/* <div /> transparent spacer — hero shows through at slide 0 */}
+          <div />
 
-        {ndaProjects.map((proj) => (
-          <WorkSlide
-            key={proj.client}
-            title={proj.client}
-            role={proj.role}
-            year={proj.year}
-            summary={proj.summary}
-            highlights={proj.highlights}
-            tech={proj.tech}
-            logo={proj.logo}
-          />
-        ))}
+          {imageWorks.map((work) => (
+            <WorkSlide
+              key={work.id}
+              title={work.title}
+              role={work.role}
+              year={work.year}
+              summary={work.summary}
+              highlights={work.highlights}
+              tech={work.tech}
+              image={work.image!}
+              url={work.url}
+              urlLabel={'urlLabel' in work ? String(work.urlLabel) : undefined}
+            />
+          ))}
 
-        {/* <div /> transparent spacer — contacts shows through at last slide */}
-        <div />
+          {ndaProjects.map((proj) => (
+            <WorkSlide
+              key={proj.client}
+              title={proj.client}
+              role={proj.role}
+              year={proj.year}
+              summary={proj.summary}
+              highlights={proj.highlights}
+              tech={proj.tech}
+              logo={proj.logo}
+            />
+          ))}
 
-      </VerticalScroller>
+          {/* <div /> transparent spacer — contacts shows through at last slide */}
+          <div />
 
-      <Footer />
+        </VerticalScroller>
+
+        <Footer />
+      </EmblaProvider>
     </div>
   );
 }
