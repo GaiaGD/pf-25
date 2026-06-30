@@ -56,7 +56,7 @@ export default function Home() {
         <div className={styles.lastContent}>
             <h2>What else?</h2>
             <div className={styles.subheading}>
-              <p>Been exposed to diversity all my life, I give my best outside comfort zones.</p>
+              <p>Being exposed to diversity all my life, I give my best outside comfort zones.</p>
               <p>I'm currently based in the US, working at <a className={styles.link} href="https://thisisgrow.com/" target="_blank" rel="noopener noreferrer">Grow</a>.</p>
               <p>When I&apos;m not online, I&apos;m practicing jiu jitsu, visiting new places, or ironically-ish singing karaoke.</p>
             </div>
