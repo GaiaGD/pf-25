@@ -20,14 +20,19 @@ export default function Footer() {
         </button>
 
         <div className={styles.dots}>
-          {Array.from({ length: snapCount }).map((_, i) => (
-            <button
+          {Array.from({ length: snapCount }).map((_, i) => {
+            if (i != 0 && i != snapCount - 1) {
+            return (
+              <button
               key={i}
               className={`${styles.dot} ${i === selectedSnap ? styles.dotActive : ''}`}
               onClick={() => emblaApi?.scrollTo(i)}
               aria-label={`Go to slide ${i + 1}`}
             />
-          ))}
+            )} else {
+              return null
+            }
+          })}
         </div>
 
         <button
