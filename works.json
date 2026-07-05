@@ -1,25 +1,6 @@
 {
   "works": [
     {
-      "id": "fitbit-google",
-      "title": "Fitbit Enterprise",
-      "client": "Fitbit (Google)",
-      "year": "2024",
-      "role": "Frontend Lead",
-      "summary": "Server-first B2B marketing platform for Google's enterprise health division. Sole frontend lead across two architectural phases, ending in a 0kB JavaScript, Preact-powered experience handed off directly to Google.",
-      "tech": ["Next.js", "Preact", "TypeScript", "Contentful"],
-      "highlights": [
-        "Sole frontend lead on a two-phase architectural rebuild: WordPress + Gutenberg → Next.js + Contentful → Root.js (server-first Preact framework) for a fully server-rendered, 0kB JS architecture",
-        "Replaced Gutenberg blocks with a headless Contentful CMS, giving Google's team full content ownership without engineering involvement",
-        "Full site including blog migrated and delivered across both phases",
-        "100% Lighthouse score, WCAG AAA accessibility"
-      ],
-      "impact": "Full B2B marketing + blog site delivered across two architectural phases and handed off to Google",
-      "image": "/fitbit-hp.jpg",
-      "url": "https://fitbit.google/enterprise/",
-      "nda": false
-    },
-    {
       "id": "ifit",
       "title": "iFit",
       "client": "iFit",
@@ -36,6 +17,25 @@
       "impact": "SSR infrastructure serving a platform with 6M+ global members",
       "image": "/ifit-hp.jpg",
       "url": "https://www.ifit.com",
+      "nda": false
+    },
+    {
+      "id": "fitbit-google",
+      "title": "Fitbit Enterprise",
+      "client": "Fitbit (Google)",
+      "year": "2024",
+      "role": "Frontend Lead",
+      "summary": "Server-first B2B marketing platform for Google's enterprise health division. Sole frontend lead across two architectural phases, ending in a 0kB JavaScript, Preact-powered experience handed off directly to Google.",
+      "tech": ["Next.js", "Preact", "TypeScript", "Contentful"],
+      "highlights": [
+        "Sole frontend lead on a two-phase architectural rebuild: WordPress + Gutenberg → Next.js + Contentful → Root.js (server-first Preact framework) for a fully server-rendered, 0kB JS architecture",
+        "Replaced Gutenberg blocks with a headless Contentful CMS, giving Google's team full content ownership without engineering involvement",
+        "Full site including blog migrated and delivered across both phases",
+        "100% Lighthouse score, WCAG AAA accessibility"
+      ],
+      "impact": "Full B2B marketing + blog site delivered across two architectural phases and handed off to Google",
+      "image": "/fitbit-hp.jpg",
+      "url": "https://fitbit.google/enterprise/",
       "nda": false
     },
     {
