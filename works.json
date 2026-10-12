@@ -1,22 +1,21 @@
 {
   "works": [
-    {
-      "id": "fitbit-google",
-      "title": "Fitbit Enterprise",
-      "client": "Fitbit (Google)",
-      "year": "2024",
-      "role": "Frontend Lead",
-      "summary": "Server-first B2B marketing platform for Google's enterprise health division. Sole frontend lead across two architectural phases, ending in a 0kB JavaScript, Preact-powered experience handed off directly to Google.",
-      "tech": ["Next.js", "Preact", "TypeScript", "Contentful"],
+      {
+      "id": "geico",
+      "title": "GEICO",
+      "client": "GEICO",
+      "year": "2026",
+      "role": "UI Egineer - Design System",
+      "summary": "Rebuilding GEICO's dotcom from scratch, starting from their internal brand guidelines and building the design system itself — the component library that powers the new site.",
+      "tech": ["Next.js", "React", "Lit", "Web Components", "Storybook", "TypeScript"],
       "highlights": [
-        "Sole frontend lead on a two-phase architectural rebuild: WordPress + Gutenberg → Next.js + Contentful → Root.js (server-first Preact framework) for a fully server-rendered, 0kB JS architecture",
-        "Replaced Gutenberg blocks with a headless Contentful CMS, giving Google's team full content ownership without engineering involvement",
-        "Full site including blog migrated and delivered across both phases",
-        "100% Lighthouse score, WCAG AAA accessibility"
+        "Built a new enterprise design system from GEICO's internal brand guidelines up",
+        "Rebuilding geico.com using the component library, closing the loop between system and product",
+        "Components documented and published via Storybook for team-wide consumption"
       ],
-      "impact": "Full B2B marketing + blog site delivered across two architectural phases and handed off to Google",
-      "image": "/fitbit-hp.jpg",
-      "url": "https://fitbit.google/enterprise/",
+      "impact": "Full site WCAG AAA compliant across all components",
+      "image": "/geico-hp.jpg",
+      "url": "https://www.geico.com/",
       "nda": false
     },
     {
@@ -36,6 +35,25 @@
       "impact": "SSR infrastructure serving a platform with 6M+ global members",
       "image": "/ifit-hp.jpg",
       "url": "https://www.ifit.com",
+      "nda": false
+    },
+    {
+      "id": "fitbit-google",
+      "title": "Fitbit Enterprise",
+      "client": "Fitbit (Google)",
+      "year": "2024",
+      "role": "Frontend Lead",
+      "summary": "Server-first B2B marketing platform for Google's enterprise health division. Sole frontend lead across two architectural phases, ending in a 0kB JavaScript, Preact-powered experience handed off directly to Google.",
+      "tech": ["Next.js", "Preact", "TypeScript", "Contentful"],
+      "highlights": [
+        "Sole frontend lead on a two-phase architectural rebuild: WordPress + Gutenberg → Next.js + Contentful → Root.js (server-first Preact framework) for a fully server-rendered, 0kB JS architecture",
+        "Replaced Gutenberg blocks with a headless Contentful CMS, giving Google's team full content ownership without engineering involvement",
+        "Full site including blog migrated and delivered across both phases",
+        "100% Lighthouse score, WCAG AAA accessibility"
+      ],
+      "impact": "Full B2B marketing + blog site delivered across two architectural phases and handed off to Google",
+      "image": "/fitbit-hp.jpg",
+      "url": "https://fitbit.google/enterprise/",
       "nda": false
     },
     {
@@ -62,19 +80,6 @@
       "title": "Enterprise Work",
       "subtitle": "Enterprise projects under NDA",
       "projects": [
-        {
-          "client": "GEICO (nda)",
-          "role": "Frontend Developer — Design System",
-          "year": "2026–present",
-          "logo": "/geico.png",
-          "summary": "Rebuilding GEICO's dotcom from scratch, starting from their internal brand guidelines and building the design system itself — the component library that powers the new site.",
-          "tech": ["Lit", "Web Components", "Storybook", "TypeScript", "Angular"],
-          "highlights": [
-            "Built a new enterprise design system from GEICO's internal brand guidelines up",
-            "Rebuilding geico.com using the component library, closing the loop between system and product",
-            "Components documented and published via Storybook for team-wide consumption"
-          ]
-        },
         {
           "client": "Capital One (nda)",
           "role": "Frontend Developer",
