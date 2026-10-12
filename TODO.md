@@ -1,0 +1,1 @@
+- on mobile, suggest to tap to scroll
