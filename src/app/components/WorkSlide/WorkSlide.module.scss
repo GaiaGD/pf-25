@@ -58,27 +58,21 @@
 .image {
   object-fit: cover;
   object-position: center 0%;
-  transition: object-position 20s ease-in-out;
+  transition: object-position 20s ease-in-out, filter 0.4s ease;
   animation: imageFadeIn 0.8s ease-in-out forwards;
 }
 
 .imageWrapper:hover .image {
   object-position: center 100%;
+
+  @include bpLarge {
+    filter: brightness(0.45);
+  }
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-
-  @include bpLarge {
-    transition: background 0.4s ease;
-  }
-}
-
-.imageWrapper:hover .overlay {
-  @include bpLarge {
-    background: rgba(255, 255, 255, 0.5);
-  }
 }
 
 .overlayLink {
@@ -100,10 +94,10 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: $textColor;
+  color: $off-white;
   opacity: 0;
   transition: opacity 0.4s ease;
-  text-shadow: 0 0 2rem rgba(255, 255, 255, 0.568);
+  text-shadow: 0 0 2rem rgba(37, 37, 37, 0.568);
   // padding: 1.5rem 2rem 0.2rem;
   .imageWrapper:hover & {
     opacity: 1;

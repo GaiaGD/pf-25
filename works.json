@@ -1,5 +1,23 @@
 {
   "works": [
+      {
+      "id": "geico",
+      "title": "GEICO",
+      "client": "GEICO",
+      "year": "2026",
+      "role": "UI Egineer - Design System",
+      "summary": "Rebuilding GEICO's dotcom from scratch, starting from their internal brand guidelines and building the design system itself — the component library that powers the new site.",
+      "tech": ["Next.js", "React", "Lit", "Web Components", "Storybook", "TypeScript"],
+      "highlights": [
+        "Built a new enterprise design system from GEICO's internal brand guidelines up",
+        "Rebuilding geico.com using the component library, closing the loop between system and product",
+        "Components documented and published via Storybook for team-wide consumption"
+      ],
+      "impact": "Full site WCAG AAA compliant across all components",
+      "image": "/geico-hp.jpg",
+      "url": "https://www.geico.com/",
+      "nda": false
+    },
     {
       "id": "ifit",
       "title": "iFit",
@@ -62,19 +80,6 @@
       "title": "Enterprise Work",
       "subtitle": "Enterprise projects under NDA",
       "projects": [
-        {
-          "client": "GEICO (nda)",
-          "role": "Frontend Developer — Design System",
-          "year": "2026–present",
-          "logo": "/geico.png",
-          "summary": "Rebuilding GEICO's dotcom from scratch, starting from their internal brand guidelines and building the design system itself — the component library that powers the new site.",
-          "tech": ["Lit", "Web Components", "Storybook", "TypeScript", "Angular"],
-          "highlights": [
-            "Built a new enterprise design system from GEICO's internal brand guidelines up",
-            "Rebuilding geico.com using the component library, closing the loop between system and product",
-            "Components documented and published via Storybook for team-wide consumption"
-          ]
-        },
         {
           "client": "Capital One (nda)",
           "role": "Frontend Developer",
