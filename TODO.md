@@ -1,4 +1,0 @@
-- layout
-- enable scrolling once out of screen
-- daisable ripple on mobile
-- ripple absorbed
